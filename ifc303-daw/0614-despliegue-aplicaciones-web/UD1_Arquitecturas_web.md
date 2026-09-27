@@ -2,7 +2,7 @@
 
 ## UD1 — Arquitecturas web
 
-Apuntes de la unidad · RA1 (a-i) · 2º DAW · IES Río Arba, Tauste · Curso 2026-27
+Apuntes de la unidad · RA1 (a-i) · 2º DAW · Curso 2026-27
 
 *Estos apuntes desarrollan el contenido de RA1 — Implanta arquitecturas web analizando y aplicando criterios de funcionalidad. Son material de referencia para consolidar lo trabajado sobre Solvia, el artefacto ancla del módulo: un sistema interno de gestión de incidencias/tickets IT que se despliega progresivamente durante todo el curso, capa a capa, con cada UD. No sustituyen la sesión de clase, sino que fijan con precisión lo que en ella se ve en contexto sobre el propio Solvia.*
 
