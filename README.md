@@ -1,6 +1,6 @@
 # Apuntes de Informática
 
-Apuntes de los módulos de informática que voy impartiendo en Formación Profesional.
+Apuntes de los módulos de informática que voy impartiendo en Formación Profesional en Aragón. Son apuntes de elaboración propia tomando como referencia los curriculos de los módulos y materiales compartidos generosamente por otros docentes.
 
 ## Ciclos
 
