@@ -1,22 +1,22 @@
 # UD1 — Conceptos básicos sobre seguridad y salud en el trabajo
 
 **Módulo A123 · Prevención de Riesgos Laborales**
-1º FPB Informática de Oficina · IES Río Arba (Tauste) · Curso 2026-27
+1º FPB Informática de Oficina · Curso 2026-27
 
 **Resultado de aprendizaje:** RA1 — Conoce los conceptos básicos sobre seguridad y salud en el trabajo.
 
 | Apartado | Criterio de evaluación | Sesión prevista |
 |---|---|---|
-| 1. El trabajo y la salud | (introducción a todo el RA1) | 28 sept. |
-| 2. Prevención y protección | CE 1.a | 28 sept. |
-| 3. Riesgo y daño profesional | CE 1.b | 28 sept. |
-| 4. Factores de riesgo | CE 1.c | 5 oct. |
-| 5. Accidente de trabajo y enfermedad profesional | CE 1.d | 5 oct. |
-| 6. Por qué importa la seguridad | CE 1.e | 19 oct. |
-| 7. Tus derechos y tus obligaciones | CE 1.f | 19 oct. |
-| 8. Orden y limpieza | CE 1.g | 26 oct. |
-| 9. Mantenimiento de los equipos | CE 1.h | 9 nov. |
-| Glosario y referencias | — | — |
+| 1. El trabajo y la salud | (introducción a todo el RA1) |
+| 2. Prevención y protección | CE 1.a |
+| 3. Riesgo y daño profesional | CE 1.b |
+| 4. Factores de riesgo | CE 1.c |
+| 5. Accidente de trabajo y enfermedad profesional | - |
+| 6. Por qué importa la seguridad | - |
+| 7. Tus derechos y tus obligaciones | - |
+| 8. Orden y limpieza | CE 1.g |
+| 9. Mantenimiento de los equipos | CE 1.h |
+| Glosario y referencias| - |
 
 > **Cómo usar estos apuntes.** Son para repasar *después* de verlo en clase, no para leerlos antes. Cada apartado tiene: una definición (lo que tienes que saber decir), una explicación con ejemplos del aula de informática, un caso para practicar, y dos avisos: ⚠️ el error que más se comete y 💡 una nota del mundo real. Donde hay dos formas de hacer algo, el recuadro ⚖️ te dice cuál se elige y por qué.
 
