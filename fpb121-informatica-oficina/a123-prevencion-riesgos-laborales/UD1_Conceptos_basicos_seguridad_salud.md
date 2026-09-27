@@ -5,7 +5,7 @@
 
 **Resultado de aprendizaje:** RA1 — Conoce los conceptos básicos sobre seguridad y salud en el trabajo.
 
-| Apartado | Criterio de evaluación | Sesión prevista |
+| Apartado | Criterio de evaluación |
 |---|---|---|
 | 1. El trabajo y la salud | (introducción a todo el RA1) |
 | 2. Prevención y protección | CE 1.a |
