@@ -1,6 +1,6 @@
 # UD2 — HTML: estructura y semántica web
 
-**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · IES Río Arba, Tauste · Curso 2026-27
+**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · Curso 2026-27
 
 ---
 
