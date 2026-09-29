@@ -4,6 +4,8 @@
 
 ---
 
+> Para practicar: [cuadernillo de ejercicios de la UD1](cuadernillo.md) (con soluciones plegadas) · [versión para imprimir, solo enunciados (PDF)](descargas/UD1_cuadernillo_enunciados.pdf).
+
 ## Introducción
 
 En esta unidad vas a aprender a reconocer las características de los lenguajes de marcas, analizando e interpretando fragmentos de código. El trabajo se organiza en cinco sesiones, cada una centrada en un bloque de contenido:
@@ -116,7 +118,7 @@ Observa la diferencia entre expresar la información de una factura con un vocab
 <!-- Vocabulario XML propio: semántica real -->
 <factura numero="2026-045">
     <importe moneda="EUR">350.00</importe>
-    <cliente>IES Río Arba</cliente>
+    <cliente>Academia Delta</cliente>
 </factura>
 ```
 
@@ -125,7 +127,7 @@ Observa la diferencia entre expresar la información de una factura con un vocab
      no existe la etiqueta <factura> -->
 <div class="factura" data-numero="2026-045">
     <span class="importe">350.00 EUR</span>
-    <span class="cliente">IES Río Arba</span>
+    <span class="cliente">Academia Delta</span>
 </div>
 ```
 
@@ -254,7 +256,7 @@ El siguiente documento combina un vocabulario propio (`catalogo`) con SVG embebi
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo:producto
-    xmlns:catalogo="http://iesrioarba.es/catalogo"
+    xmlns:catalogo="http://ejemplo.org/catalogo"
     xmlns:svg="http://www.w3.org/2000/svg">
     <catalogo:nombre>Teclado mecánico compacto</catalogo:nombre>
     <catalogo:icono>
