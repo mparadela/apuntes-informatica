@@ -1,6 +1,6 @@
 # UD2 — HTML: estructura y semántica web
 
-**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · Curso 2026-27
+**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · IES Río Arba, Tauste · Curso 2026-27
 
 ---
 
@@ -19,6 +19,8 @@ El trabajo se organiza en nueve sesiones y avanza a la vez que tu propio proyect
 - **Sesión 7:** Formularios.
 - **Sesión 8:** Versiones de HTML en la práctica: de HTML 4 y XHTML a HTML actual.
 - **Sesión 9:** Defensa del portfolio.
+
+Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
 
 ## Índice
 
