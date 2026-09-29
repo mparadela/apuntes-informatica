@@ -1,27 +1,32 @@
+# UD1 — Introducción a los lenguajes de marcas
 
+**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA1 (a-i) · 1º DAW · Curso 2026-27
 
-| 0373 · Lenguajes de Marcas y SGI UD1 — Introducción a los lenguajes de marcas Apuntes de la unidad · RA1 (a-i) · 1º DAW · IES Río Arba, Tauste · Curso 2026-27 |
-| :---- |
+---
 
-**Introducción**
+## Introducción 
 
 En esta unidad vas a aprender a reconocer las características de los lenguajes de marcas, analizando e interpretando fragmentos de código. El trabajo se organiza en cinco sesiones, cada una centrada en un bloque de contenido:
 
-* **Sesión 1:** ¿Qué es un lenguaje de marcas? Características generales y ventajas.
+- **Sesión 1:** ¿Qué es un lenguaje de marcas? Características generales y ventajas.
+- **Sesión 2:** Clasificación de los lenguajes de marcas y ámbitos de aplicación.
+- **Sesión 3:** Comparativa de lenguajes concretos: XML, HTML y otros.
+- **Sesión 4:** Estructura y sintaxis de un documento de marcas.
+- **Sesión 5:** Documentos bien formados y espacios de nombres.
 
-* **Sesión 2:** Clasificación de los lenguajes de marcas y ámbitos de aplicación.
+## Índice
 
-* **Sesión 3:** Comparativa de lenguajes concretos: XML, HTML y otros.
+1. ¿Qué es un lenguaje de marcas? *(1.a, 1.b)*
+2. Clasificación de los lenguajes de marcas y ámbitos de aplicación *(1.c, 1.d, 1.e)*
+3. Comparativa de lenguajes concretos: XML, HTML y otros *(1.f)*
+4. Estructura y sintaxis de un documento de marcas *(1.g)*
+5. Documentos bien formados y espacios de nombres *(1.h, 1.i)*
+- Glosario
+- Referencias y recursos
 
-* **Sesión 4:** Estructura y sintaxis de un documento de marcas.
-
-* **Sesión 5:** Documentos bien formados y espacios de nombres.
-
-Estos apuntes son un material de apoyo y consulta: úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
+---
 
 **1\. ¿Qué es un lenguaje de marcas?**
-
-// Criterios de evaluación: 1.a, 1.b
 
 **1.1 Origen y definición**
 
@@ -49,17 +54,12 @@ Un programa que reciba el segundo documento puede extraer el precio con total fi
 
 **1.3 Ventajas de trabajar con lenguajes de marcas**
 
-* **Legibilidad humana:** al ser texto plano, se puede leer y editar sin herramienta especializada, incluso con un editor de texto genérico.
-
-* **Independencia de la aplicación:** cualquier programa que entienda la sintaxis puede procesar el documento; no depende de un fabricante concreto.
-
-* **Separación de contenido y forma:** el mismo contenido marcado puede reutilizarse para distintas salidas (pantalla, impresión, lectura por voz) sin reescribirlo.
-
-* **Interoperabilidad:** al ser un formato de texto estandarizado, sistemas y lenguajes de programación distintos pueden intercambiar información sin conversiones complejas.
-
-* **Procesabilidad automática:** la estructura explícita permite que un programa navegue, valide, transforme o extraiga información del documento de forma fiable.
-
-* **Durabilidad:** un archivo de texto plano con marcas sigue siendo legible dentro de veinte años aunque el software que lo creó haya desaparecido; un binario propietario puede quedar "atrapado" si el fabricante deja de existir.
+- **Legibilidad humana:** al ser texto plano, se puede leer y editar sin herramienta especializada, incluso con un editor de texto genérico.
+- **Independencia de la aplicación:** cualquier programa que entienda la sintaxis puede procesar el documento; no depende de un fabricante concreto.
+- **Separación de contenido y forma:** el mismo contenido marcado puede reutilizarse para distintas salidas (pantalla, impresión, lectura por voz) sin reescribirlo.
+- **Interoperabilidad:** al ser un formato de texto estandarizado, sistemas y lenguajes de programación distintos pueden intercambiar información sin conversiones complejas.
+- **Procesabilidad automática:** la estructura explícita permite que un programa navegue, valide, transforme o extraiga información del documento de forma fiable.
+- **Durabilidad:** un archivo de texto plano con marcas sigue siendo legible dentro de veinte años aunque el software que lo creó haya desaparecido; un binario propietario puede quedar "atrapado" si el fabricante deja de existir.
 
 **ALTERNATIVAS Y CRITERIO**
 
@@ -70,8 +70,6 @@ La misma información podría almacenarse en un formato binario propietario (por
 Es fácil confundir "lenguaje de marcas" con "dar formato" en el sentido de un procesador de textos: negrita, cursiva, tamaño de fuente. Poner texto en negrita en Word es aplicar un formato visual gestionado internamente por la aplicación, no escribir marcas legibles como texto. Un lenguaje de marcas es una sintaxis explícita, visible y procesable por terceros, no una decoración oculta dentro de un binario.
 
 **2\. Clasificación de los lenguajes de marcas y ámbitos de aplicación**
-
-// Criterios de evaluación: 1.c, 1.d, 1.e
 
 **2.1 Cuatro formas de marcar un texto**
 
@@ -87,15 +85,11 @@ Los lenguajes de marcas se clasifican, según el tipo de información que codifi
 
 **2.2 La familia de lenguajes de marcas**
 
-* **SGML** (Standard Generalized Markup Language): metalenguaje original, normalizado por ISO (norma ISO 8879:1986); muy potente pero complejo de implementar; predecesor directo de HTML y XML.
-
-* **XML** (eXtensible Markup Language): subconjunto simplificado de SGML, de propósito general, normalizado por el W3C; permite definir vocabularios de marcado propios.
-
-* **HTML** (HyperText Markup Language): vocabulario fijo y específico para la web, orientado a presentación e hipertexto. Se desarrollará en profundidad en la UD2.
-
-* **XHTML:** reformulación de HTML como aplicación de XML, con sintaxis más estricta; hoy en gran medida en desuso frente a HTML5.
-
-* **Otros vocabularios XML de propósito específico:** SVG (gráficos vectoriales), MathML (notación matemática), DocBook (documentación técnica), RSS/Atom (sindicación de contenidos, se estudiará en la UD3).
+- **SGML** (Standard Generalized Markup Language): metalenguaje original, normalizado por ISO (norma ISO 8879:1986); muy potente pero complejo de implementar; predecesor directo de HTML y XML.
+- **XML** (eXtensible Markup Language): subconjunto simplificado de SGML, de propósito general, normalizado por el W3C; permite definir vocabularios de marcado propios.
+- **HTML** (HyperText Markup Language): vocabulario fijo y específico para la web, orientado a presentación e hipertexto. Se desarrollará en profundidad en la UD2.
+- **XHTML:** reformulación de HTML como aplicación de XML, con sintaxis más estricta; hoy en gran medida en desuso frente a HTML5.
+- **Otros vocabularios XML de propósito específico:** SVG (gráficos vectoriales), MathML (notación matemática), DocBook (documentación técnica), RSS/Atom (sindicación de contenidos, se estudiará en la UD3).
 
 SGML y XML no son de un único organismo: SGML se formalizó como norma ISO, mientras que XML se desarrolla y mantiene como recomendación del W3C (World Wide Web Consortium) — los dos organismos que, junto con WHATWG para HTML, regulan hoy esta familia de lenguajes.
 
@@ -146,8 +140,6 @@ Aunque XML dominó el intercambio de datos entre 2000 y 2010 (SOAP, servicios we
 
 **3\. Comparativa de lenguajes concretos: XML, HTML y otros**
 
-// Criterio de evaluación: 1.f
-
 **3.1 Extensibilidad, rigor y propósito**
 
 Aunque SGML, XML, HTML y XHTML comparten origen y una sintaxis de marcas similar en apariencia —elementos delimitados por \`\< \>\`—, difieren en tres características clave: el grado de **extensibilidad** (vocabulario fijo o definible por quien escribe el documento), el **rigor sintáctico** exigido (tolerancia del procesador ante errores) y el **propósito** para el que fueron diseñados.
@@ -182,8 +174,6 @@ Este tema se retomará en la UD2: que el navegador tolere errores no significa q
 
 **4\. Estructura y sintaxis de un documento de marcas**
 
-// Criterio de evaluación: 1.g
-
 **4.1 El documento como árbol**
 
 Todo documento de marcas se organiza como un árbol jerárquico de elementos: un único **elemento raíz** contiene, anidado dentro de sí, el resto de elementos del documento. Este modelo de árbol —el mismo que usa el DOM (Document Object Model) para representar un documento en memoria— tiene su propio vocabulario, que conviene manejar con soltura: el **nodo raíz** es el único elemento sin padre, del que cuelga todo lo demás; un **nodo padre** es el que contiene directamente a otro; los elementos contenidos directamente en él son sus **nodos hijos**; y dos o más elementos que comparten el mismo padre son **nodos hermanos** entre sí.
@@ -192,21 +182,14 @@ Cada elemento se delimita mediante una etiqueta de apertura y una de cierre —o
 
 **4.2 Sintaxis básica**
 
-* **Etiqueta de apertura:** \`\<elemento\>\`
-
-* **Etiqueta de cierre:** \`\</elemento\>\`
-
-* **Etiqueta vacía o autocontenida:** \`\<elemento/\>\`, equivalente a \`\<elemento\>\</elemento\>\`
-
-* **Atributos:** pares nombre="valor" dentro de la etiqueta de apertura: \`\<elemento atributo="valor"\>\`
-
-* **Anidamiento:** los elementos deben cerrarse en el orden inverso al que se abrieron; estructura de árbol, nunca de solapamiento
-
-* **Declaración o prólogo** (específico de XML): \`\<?xml version="1.0" encoding="UTF-8"?\>\`, indica la versión de XML y la codificación de caracteres; debe ser la primera línea del documento
-
-* **Comentarios:** \`\<\!-- comentario \--\>\`, válidos en XML y en HTML, ignorados por el procesador
-
-* **Sensibilidad a mayúsculas:** XML distingue mayúsculas de minúsculas en los nombres de elemento (\`\<Producto\>\` y \`\<producto\>\` son elementos distintos); HTML no la distingue en la práctica, aunque la convención moderna es escribir siempre en minúsculas
+- **Etiqueta de apertura:** \`\<elemento\>\`
+- **Etiqueta de cierre:** \`\</elemento\>\`
+- **Etiqueta vacía o autocontenida:** \`\<elemento/\>\`, equivalente a \`\<elemento\>\</elemento\>\`
+- **Atributos:** pares nombre="valor" dentro de la etiqueta de apertura: \`\<elemento atributo="valor"\>\`
+- **Anidamiento:** los elementos deben cerrarse en el orden inverso al que se abrieron; estructura de árbol, nunca de solapamiento
+- **Declaración o prólogo** (específico de XML): \`\<?xml version="1.0" encoding="UTF-8"?\>\`, indica la versión de XML y la codificación de caracteres; debe ser la primera línea del documento
+- **Comentarios:** \`\<\!-- comentario \--\>\`, válidos en XML y en HTML, ignorados por el procesador
+- **Sensibilidad a mayúsculas:** XML distingue mayúsculas de minúsculas en los nombres de elemento (\`\<Producto\>\` y \`\<producto\>\` son elementos distintos); HTML no la distingue en la práctica, aunque la convención moderna es escribir siempre en minúsculas
 
 **4.3 Un documento completo, elemento a elemento**
 
@@ -292,50 +275,29 @@ Los espacios de nombres son la base de tecnologías que se usarán más adelante
 
 **Glosario de UD1**
 
-* **Marcado (markup):** anotación insertada en un texto para indicar estructura, semántica o presentación.
-
-* **Marcado presentacional:** marcado que indica directamente un efecto visual, ligado a un formato de salida concreto (ejemplo: RTF).
-
-* **Marcado de procedimiento:** marcado que da instrucciones directas al programa de salida sobre cómo mostrar el contenido (ejemplos: troff, PostScript, TeX/LaTeX).
-
-* **Marcado descriptivo:** marcado que indica qué es cada parte del contenido, sin decir cómo debe mostrarse (familia SGML/XML).
-
-* **Marcado referencial:** marcado que expresa relaciones entre partes de un documento o entre documentos (ejemplo: un hipervínculo).
-
-* **Etiqueta (tag):** marca delimitadora de un elemento, de apertura o de cierre.
-
-* **Elemento:** unidad estructural de un documento de marcas, compuesta por su etiqueta (o etiquetas), sus atributos y su contenido.
-
-* **Atributo:** par nombre-valor que aporta información adicional dentro de una etiqueta de apertura.
-
-* **Nodo raíz:** único elemento de nivel superior que contiene a todos los demás en un documento de marcas.
-
-* **Nodo padre / nodo hijo / nodos hermanos:** vocabulario del árbol del documento (DOM): un nodo padre contiene directamente a sus nodos hijos; dos nodos con el mismo padre son hermanos entre sí.
-
-* **Documento bien formado (well-formed):** documento que cumple las reglas sintácticas básicas del lenguaje de marcas.
-
-* **Validación:** comprobación de que un documento, además de bien formado, se ajusta a una gramática o vocabulario concreto (DTD, XML Schema) — se desarrollará en la UD5.
-
-* **SGML:** Standard Generalized Markup Language, metalenguaje normalizado por ISO del que derivan HTML y XML.
-
-* **XML:** eXtensible Markup Language, metalenguaje de propósito general normalizado por el W3C para definir vocabularios de marcado propios.
-
-* **HTML:** HyperText Markup Language, vocabulario fijo orientado a la web.
-
-* **XHTML:** reformulación de HTML como aplicación de XML.
-
-* **Espacio de nombres (namespace):** mecanismo de XML para evitar colisiones de nombres al combinar vocabularios de distinto origen.
-
-* **W3C:** World Wide Web Consortium, organismo que desarrolla y mantiene estándares web como XML, los espacios de nombres o SVG.
-
-* **Parser (procesador):** programa que analiza sintácticamente un documento de marcas.
+- **Marcado (markup):** anotación insertada en un texto para indicar estructura, semántica o presentación.
+- **Marcado presentacional:** marcado que indica directamente un efecto visual, ligado a un formato de salida concreto (ejemplo: RTF).
+- **Marcado de procedimiento:** marcado que da instrucciones directas al programa de salida sobre cómo mostrar el contenido (ejemplos: troff, PostScript, TeX/LaTeX).
+- **Marcado descriptivo:** marcado que indica qué es cada parte del contenido, sin decir cómo debe mostrarse (familia SGML/XML).
+- **Marcado referencial:** marcado que expresa relaciones entre partes de un documento o entre documentos (ejemplo: un hipervínculo).
+- **Etiqueta (tag):** marca delimitadora de un elemento, de apertura o de cierre.
+- **Elemento:** unidad estructural de un documento de marcas, compuesta por su etiqueta (o etiquetas), sus atributos y su contenido.
+- **Atributo:** par nombre-valor que aporta información adicional dentro de una etiqueta de apertura.
+- **Nodo raíz:** único elemento de nivel superior que contiene a todos los demás en un documento de marcas.
+- **Nodo padre / nodo hijo / nodos hermanos:** vocabulario del árbol del documento (DOM): un nodo padre contiene directamente a sus nodos hijos; dos nodos con el mismo padre son hermanos entre sí.
+- **Documento bien formado (well-formed):** documento que cumple las reglas sintácticas básicas del lenguaje de marcas.
+- **Validación:** comprobación de que un documento, además de bien formado, se ajusta a una gramática o vocabulario concreto (DTD, XML Schema) — se desarrollará en la UD5.
+- **SGML:** Standard Generalized Markup Language, metalenguaje normalizado por ISO del que derivan HTML y XML.
+- **XML:** eXtensible Markup Language, metalenguaje de propósito general normalizado por el W3C para definir vocabularios de marcado propios.
+- **HTML:** HyperText Markup Language, vocabulario fijo orientado a la web.
+- **XHTML:** reformulación de HTML como aplicación de XML.
+- **Espacio de nombres (namespace):** mecanismo de XML para evitar colisiones de nombres al combinar vocabularios de distinto origen.
+- **W3C:** World Wide Web Consortium, organismo que desarrolla y mantiene estándares web como XML, los espacios de nombres o SVG.
+- **Parser (procesador):** programa que analiza sintácticamente un documento de marcas.
 
 **Referencias y recursos adicionales**
 
-* W3C — Extensible Markup Language (XML) 1.0, especificación oficial: https://www.w3.org/TR/xml/
-
-* W3C — Namespaces in XML 1.0, especificación oficial: https://www.w3.org/TR/xml-names/
-
-* WHATWG — HTML Living Standard: https://html.spec.whatwg.org/
-
-* MDN Web Docs — sección HTML: https://developer.mozilla.org/es/docs/Web/HTML
+- **W3C — Extensible Markup Language (XML) 1.0**, especificación oficial: https://www.w3.org/TR/xml/
+- **W3C — Namespaces in XML 1.0**, especificación oficial: https://www.w3.org/TR/xml-names/
+- **WHATWG — HTML Living Standard**: https://html.spec.whatwg.org/
+- **MDN Web Docs — sección HTML**: https://developer.mozilla.org/es/docs/Web/HTML
