@@ -1,6 +1,6 @@
 # UD2 — HTML: estructura y semántica web
 
-**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · IES Río Arba, Tauste · Curso 2026-27
+**0373 · Lenguajes de Marcas y SGI** · Apuntes de la unidad · RA2 (a-e) · 1º DAW · Curso 2026-27
 
 ---
 
@@ -20,8 +20,6 @@ El trabajo se organiza en nueve sesiones y avanza a la vez que tu propio proyect
 - **Sesión 8:** Versiones de HTML en la práctica: de HTML 4 y XHTML a HTML actual.
 - **Sesión 9:** Defensa del portfolio.
 
-Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
-
 ## Índice
 
 1. Los lenguajes de la web y sus estándares *(2.a, 2.d)*
@@ -38,8 +36,6 @@ Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consol
 ---
 
 ## 1. Los lenguajes de la web y sus estándares
-
-`// Criterios de evaluación: 2.a, 2.d`
 
 ### 1.1 Una página web es un documento con varios lenguajes
 
@@ -179,8 +175,6 @@ XHTML es HTML escrito con las reglas de XML: todas las etiquetas cerradas (tambi
 ---
 
 ## 2. Estructura de un documento HTML y herramientas de trabajo
-
-`// Criterios de evaluación: 2.b, 2.e`
 
 ### 2.1 Elementos, etiquetas y atributos
 
@@ -381,8 +375,6 @@ El símbolo `>` significa «dentro de» y `*3` significa «repetido 3 veces». E
 
 ## 3. Texto con significado
 
-`// Criterios de evaluación: 2.c`
-
 ### 3.1 La regla de oro: semántica antes que apariencia
 
 HTML describe **qué es** cada fragmento de contenido, no cómo se ve. Que un título aparezca grande y en negrita es una decisión del navegador, que CSS puede cambiar por completo. Lo que HTML aporta es que ese texto **es un encabezado**, y eso lo aprovechan otros programas además del navegador:
@@ -533,8 +525,6 @@ Documento válido según el Nu Html Checker, que reúne casi todos los elementos
 ---
 
 ## 4. Enlaces, rutas e imágenes
-
-`// Criterios de evaluación: 2.c, 2.e`
 
 ### 4.1 El elemento `a`
 
@@ -690,8 +680,6 @@ Documento válido según el Nu Html Checker. El validador no comprueba que los a
 ---
 
 ## 5. Estructura semántica de la página
-
-`// Criterios de evaluación: 2.b, 2.c`
 
 ### 5.1 El problema: la «sopa de divs»
 
@@ -850,8 +838,6 @@ Existe el atributo `role` para asignar roles a mano (`<div role="navigation">`),
 
 ## 6. Tablas de datos
 
-`// Criterios de evaluación: 2.c`
-
 ### 6.1 Cuándo usar una tabla
 
 Una tabla sirve para **datos tabulares**: información que tiene sentido leída por filas y por columnas a la vez, como un horario, una comparativa o un listado de notas. Durante los años 90 y 2000, las tablas se usaron también para **maquetar** (colocar la cabecera, el menú lateral y el contenido en celdas). Esa práctica es incorrecta: un lector de pantalla lee la página celda a celda, anunciando «fila 2, columna 1», y la estructura no tiene ningún significado. La disposición visual se hace con CSS (UD3).
@@ -1003,8 +989,6 @@ Son avisos (*info warning*), no errores: los atributos son obsoletos y todo eso 
 ---
 
 ## 7. Formularios
-
-`// Criterios de evaluación: 2.c, 2.d`
 
 ### 7.1 Qué hace un formulario
 
@@ -1211,8 +1195,6 @@ Detalles a observar:
 ---
 
 ## 8. Versiones de HTML en la práctica
-
-`// Criterios de evaluación: 2.d, 2.a`
 
 ### 8.1 Qué cambió entre HTML 4 / XHTML y el HTML actual
 
