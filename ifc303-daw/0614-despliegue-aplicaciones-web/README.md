@@ -17,3 +17,7 @@ Y esto último importa: aquí no se aprueba solo por entregar. Cada etapa de Sol
 ## Unidades didácticas
 
 - [UD1 · Arquitecturas web](/ifc303-daw/0614-despliegue-aplicaciones-web/UD1_Arquitecturas_web.md)
+
+# Descargas
+
+- [UD1 · Arquitecturas web](ifc303-daw/0614-despliegue-aplicaciones-web/UD1_Arquitecturas_web.md ':ignore')
