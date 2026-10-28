@@ -8,15 +8,15 @@
 
 ## Introducción
 
-En esta unidad vas a aprender a reconocer las características de los lenguajes de marcas, analizando e interpretando fragmentos de código. El trabajo se organiza en cinco sesiones, cada una centrada en un bloque de contenido:
+En esta unidad vas a aprender a reconocer las características de los lenguajes de marcas, analizando e interpretando fragmentos de código. La unidad se organiza en cinco apartados, cada uno centrado en un bloque de contenido:
 
-- **Sesión 1:** ¿Qué es un lenguaje de marcas? Características generales y ventajas.
-- **Sesión 2:** Clasificación de los lenguajes de marcas y ámbitos de aplicación.
-- **Sesión 3:** Comparativa de lenguajes concretos: XML, HTML y otros.
-- **Sesión 4:** Estructura y sintaxis de un documento de marcas.
-- **Sesión 5:** Documentos bien formados y espacios de nombres.
+- **Apartado 1:** ¿Qué es un lenguaje de marcas? Características generales y ventajas.
+- **Apartado 2:** Clasificación de los lenguajes de marcas y ámbitos de aplicación.
+- **Apartado 3:** Comparativa de lenguajes concretos: XML, HTML y otros.
+- **Apartado 4:** Estructura y sintaxis de un documento de marcas.
+- **Apartado 5:** Documentos bien formados y espacios de nombres.
 
-Estos apuntes son un material de apoyo y consulta: úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
+Estos apuntes están escritos para que puedas estudiar la unidad por tu cuenta, sin necesidad de haber asistido a clase: cada apartado define los términos que usa, explica el porqué de las reglas y trae ejemplos completos con su resultado esperado. También sirven, por supuesto, para repasar lo trabajado en el aula.
 
 ## Índice
 
@@ -34,9 +34,9 @@ Estos apuntes son un material de apoyo y consulta: úsalos para repasar y consol
 
 ### 1.1 Origen y definición
 
-El término "marcar" un texto es anterior a la informática. En la edición tradicional de libros, el corrector de pruebas escribía anotaciones a mano en los márgenes del manuscrito para indicar al tipógrafo cómo componer el texto: "esto va en cursiva", "aquí empieza una sección nueva". Los primeros lenguajes de marcas informáticos (GML, desarrollado por IBM en los años 60-70) trasladaron esa misma idea al texto digital, dando lugar a la familia de lenguajes que se sigue usando hoy: GML → SGML → HTML / XML. Por eso HTML y XML comparten un aspecto sintáctico similar —elementos delimitados por `< >`— pese a tener propósitos distintos: ambos descienden de SGML.
+El término "marcar" un texto es anterior a la informática. En la edición tradicional de libros, el corrector de pruebas escribía anotaciones a mano en los márgenes del manuscrito para indicar al tipógrafo cómo componer el texto: "esto va en cursiva", "aquí empieza una sección nueva". Los primeros lenguajes de marcas informáticos (GML, *Generalized Markup Language*, desarrollado por IBM a finales de los años 60 y durante los 70) trasladaron esa misma idea al texto digital, dando lugar a la familia de lenguajes que se sigue usando hoy: GML → SGML → HTML / XML (cada uno de estos nombres se define en el apartado 2.2). Por eso HTML y XML comparten un aspecto sintáctico similar —elementos delimitados por `< >`— pese a tener propósitos distintos: ambos descienden de SGML.
 
-Un **lenguaje de marcas** (markup language) es, por tanto, un sistema de anotación que permite combinar, dentro de un mismo documento de texto, contenido y un conjunto de marcas o etiquetas que indican cómo debe interpretarse, estructurarse o procesarse ese contenido, sin recurrir a un formato binario propietario. Las marcas conviven con el contenido pero son sintácticamente distinguibles de él, de modo que un programa (parser) puede separar de forma automática el contenido de las instrucciones que lo acompañan.
+Un **lenguaje de marcas** (markup language) es, por tanto, un sistema de anotación que permite combinar, dentro de un mismo documento de texto, contenido y un conjunto de marcas o etiquetas que indican cómo debe interpretarse, estructurarse o procesarse ese contenido, sin recurrir a un formato binario propietario. Las marcas conviven con el contenido pero son sintácticamente distinguibles de él, de modo que un programa de análisis sintáctico (*parser*, también llamado procesador) puede separar de forma automática el contenido de las instrucciones que lo acompañan.
 
 ### 1.2 Marcas explícitas frente a formato oculto
 
@@ -94,7 +94,9 @@ Los lenguajes de marcas se clasifican, según el tipo de información que codifi
 - **XHTML:** reformulación de HTML como aplicación de XML, con sintaxis más estricta; hoy en gran medida en desuso frente a HTML5.
 - **Otros vocabularios XML de propósito específico:** SVG (gráficos vectoriales), MathML (notación matemática), DocBook (documentación técnica), RSS/Atom (sindicación de contenidos, se estudiará en la UD3).
 
-SGML y XML no son de un único organismo: SGML se formalizó como norma ISO, mientras que XML se desarrolla y mantiene como recomendación del W3C (World Wide Web Consortium) — los dos organismos que, junto con WHATWG para HTML, regulan hoy esta familia de lenguajes.
+Dos términos que aparecerán continuamente en esta unidad. Un **vocabulario** es el conjunto de nombres de elementos y atributos que se usan en un tipo de documento, junto con el significado de cada uno (el vocabulario de HTML incluye `p`, `a` o `img`; el de una factura XML podría incluir `importe` y `cliente`). Un **metalenguaje** es un lenguaje para definir otros lenguajes: SGML y XML no te dan etiquetas ya hechas, te dan las reglas con las que cada cual construye las suyas.
+
+SGML y XML no son de un único organismo: SGML se formalizó como norma ISO, mientras que XML se desarrolla y mantiene como recomendación del W3C (World Wide Web Consortium) — los dos organismos que, junto con WHATWG para HTML, regulan hoy esta familia de lenguajes. WHATWG (*Web Hypertext Application Technology Working Group*) es un grupo formado por los fabricantes de navegadores que mantiene HTML como *Living Standard*: un estándar «vivo» que se actualiza de forma continua en lugar de publicarse en versiones cerradas.
 
 ### 2.3 Dónde se usa cada lenguaje
 
@@ -108,6 +110,8 @@ SGML y XML no son de un único organismo: SGML se formalizó como norma ISO, mie
 | Gráficos vectoriales | SVG |
 | Sindicación de contenidos | RSS / Atom (UD3) |
 
+Algunas de las siglas de la tabla: **SOAP** es un protocolo de servicios web que intercambia sus mensajes en formato XML; **DocBook** y **DITA** son vocabularios XML para escribir documentación técnica; **OOXML** es el formato XML de los documentos de Microsoft Office y **ODF** (*OpenDocument Format*) su equivalente abierto, usado por LibreOffice; la **facturación electrónica** española usa el formato XML Facturae; en **Android**, el diseño de las pantallas se describe en archivos XML; **Maven** (`pom.xml`) y **Spring** son herramientas del mundo Java cuya configuración se escribe también en XML.
+
 ### 2.4 Por qué hace falta un lenguaje de propósito general
 
 Cuando ningún vocabulario existente encaja "de fábrica" con el dominio de un problema —una factura, una partitura musical, la configuración de una aplicación concreta—, se necesita un metalenguaje que permita definir las propias etiquetas manteniendo unas reglas sintácticas comunes, y opcionalmente una gramática propia (DTD o XML Schema, que se estudiarán en la UD5) para validar los documentos de ese vocabulario. Ese es exactamente el papel de XML: no es un lenguaje con vocabulario fijo como HTML, sino una plantilla de reglas para crear lenguajes de marcas a medida.
@@ -118,7 +122,7 @@ Observa la diferencia entre expresar la información de una factura con un vocab
 <!-- Vocabulario XML propio: semántica real -->
 <factura numero="2026-045">
     <importe moneda="EUR">350.00</importe>
-    <cliente>Academia Delta</cliente>
+    <cliente>Ferretería Norte</cliente>
 </factura>
 ```
 
@@ -127,7 +131,7 @@ Observa la diferencia entre expresar la información de una factura con un vocab
      no existe la etiqueta <factura> -->
 <div class="factura" data-numero="2026-045">
     <span class="importe">350.00 EUR</span>
-    <span class="cliente">Academia Delta</span>
+    <span class="cliente">Ferretería Norte</span>
 </div>
 ```
 
@@ -167,7 +171,7 @@ Fíjate en un fragmento HTML con una etiqueta sin cerrar:
 <p>Y este tampoco</p>
 ```
 
-Ese fragmento se renderiza igualmente en cualquier navegador: el motor de HTML "adivina" dónde debería cerrarse el primer `<p>`. El mismo fragmento, interpretado por un parser XML estricto, produce un error de análisis (parsing error) y el documento no se procesa en absoluto: no hay reparación automática.
+Ese fragmento se renderiza igualmente en cualquier navegador: el motor de HTML "adivina" dónde debería cerrarse el primer `<p>`. El mismo fragmento, interpretado por un parser XML estricto, produce un error de análisis (parsing error) y el documento no se procesa en absoluto: no hay reparación automática. Guardado el fragmento como `fragmento.xml` y comprobado con el procedimiento del apartado 5.3, un parser real responde `no element found: line 3, column 0`: llegó al final del archivo con etiquetas todavía abiertas y se negó a continuar.
 
 > **ALTERNATIVAS Y CRITERIO**
 >
@@ -185,7 +189,7 @@ Ese fragmento se renderiza igualmente en cualquier navegador: el motor de HTML "
 
 ### 4.1 El documento como árbol
 
-Todo documento de marcas se organiza como un árbol jerárquico de elementos: un único **elemento raíz** contiene, anidado dentro de sí, el resto de elementos del documento. Este modelo de árbol —el mismo que usa el DOM (Document Object Model) para representar un documento en memoria— tiene su propio vocabulario, que conviene manejar con soltura: el **nodo raíz** es el único elemento sin padre, del que cuelga todo lo demás; un **nodo padre** es el que contiene directamente a otro; los elementos contenidos directamente en él son sus **nodos hijos**; y dos o más elementos que comparten el mismo padre son **nodos hermanos** entre sí.
+Todo documento de marcas se organiza como un árbol jerárquico de elementos: un único **elemento raíz** contiene, anidado dentro de sí, el resto de elementos del documento. Este modelo de árbol —el mismo que usa el DOM (*Document Object Model*, la representación en memoria de un documento como árbol de objetos que un programa puede recorrer y modificar; los navegadores construyen uno al cargar cada página)— tiene su propio vocabulario, que conviene manejar con soltura: el **nodo raíz** es el único elemento sin padre, del que cuelga todo lo demás; un **nodo padre** es el que contiene directamente a otro; los elementos contenidos directamente en él son sus **nodos hijos**; y dos o más elementos que comparten el mismo padre son **nodos hermanos** entre sí.
 
 Cada elemento se delimita mediante una etiqueta de apertura y una de cierre —o una etiqueta vacía autocontenida—, puede llevar atributos que aportan información adicional sobre ese elemento, y puede contener texto, otros elementos, o ambos.
 
@@ -196,7 +200,7 @@ Cada elemento se delimita mediante una etiqueta de apertura y una de cierre —o
 - **Etiqueta vacía o autocontenida:** `<elemento/>`, equivalente a `<elemento></elemento>`
 - **Atributos:** pares nombre="valor" dentro de la etiqueta de apertura: `<elemento atributo="valor">`
 - **Anidamiento:** los elementos deben cerrarse en el orden inverso al que se abrieron; estructura de árbol, nunca de solapamiento
-- **Declaración o prólogo** (específico de XML): `<?xml version="1.0" encoding="UTF-8"?>`, indica la versión de XML y la codificación de caracteres; debe ser la primera línea del documento
+- **Declaración o prólogo** (específico de XML): `<?xml version="1.0" encoding="UTF-8"?>`, indica la versión de XML (hoy, siempre `1.0`) y la codificación de caracteres; debe ir al principio del documento, sin ningún espacio ni línea en blanco antes. La **codificación** es la tabla que traduce cada carácter a bytes; `UTF-8` es la habitual y permite escribir acentos, eñes y símbolos como `€`. Si el archivo se guarda con una codificación distinta de la declarada, los caracteres especiales se corrompen (por ejemplo, «Ratón» se lee como «RatÃ³n»)
 - **Comentarios:** `<!-- comentario -->`, válidos en XML y en HTML, ignorados por el procesador
 - **Sensibilidad a mayúsculas:** XML distingue mayúsculas de minúsculas en los nombres de elemento (`<Producto>` y `<producto>` son elementos distintos); HTML no la distingue en la práctica, aunque la convención moderna es escribir siempre en minúsculas
 
@@ -218,7 +222,7 @@ El siguiente documento XML está bien formado y reúne todos los elementos sint�
 </producto>
 ```
 
-Aplicando el vocabulario del árbol de la sección 4.1: `producto` es el nodo raíz, y `id="P-1024"` y `disponible="true"` son sus atributos —metadatos sobre el producto, no contenido narrativo—. `nombre`, `categoria`, `precio` y `descripcion` son nodos hijos de `producto`, y a la vez hermanos entre sí, porque comparten el mismo padre. `moneda="EUR"` es un atributo del nodo `precio`. La línea `<!-- Ficha de un producto del catálogo -->` es un comentario: no forma parte de los datos, solo documenta el archivo.
+Aplicando el vocabulario del árbol de la sección 4.1: `producto` es el nodo raíz, y `id="P-1024"` y `disponible="true"` son sus atributos —metadatos sobre el producto, no contenido narrativo—. `nombre`, `categoria`, `precio` y `descripcion` son nodos hijos de `producto`, y a la vez hermanos entre sí, porque comparten el mismo padre. `moneda="EUR"` es un atributo del nodo `precio`. La línea `<!-- Ficha de un producto del catálogo -->` es un comentario: no forma parte de los datos, solo documenta el archivo. Si guardas el documento como `producto.xml` (con codificación UTF-8) y lo compruebas con el procedimiento del apartado 5.3, el resultado esperado es `OK`.
 
 > **ALTERNATIVAS Y CRITERIO**
 >
@@ -241,7 +245,9 @@ Un documento de marcas está **bien formado** (well-formed) cuando cumple todas 
 - Un único elemento raíz que contiene a todos los demás.
 - Toda etiqueta abierta se cierra, y el anidamiento respeta el orden inverso de apertura.
 - Los valores de los atributos van siempre entre comillas (simples o dobles, de forma consistente).
-- Los caracteres especiales reservados se escapan cuando forman parte del texto: `&lt;` por `<`, `&gt;` por `>`, `&amp;` por `&`, `&quot;` por `"`, `&apos;` por `'`.
+- Los caracteres reservados se escriben como **entidades** cuando forman parte del texto. Una entidad es una secuencia que empieza por `&` y termina en `;` y representa un carácter. Son obligatorias `&lt;` (por `<`) y `&amp;` (por `&`) en el contenido de los elementos; `&gt;` (por `>`) no es estrictamente obligatoria, pero se escribe siempre por coherencia; `&quot;` (por `"`) y `&apos;` (por `'`) hacen falta dentro de un valor de atributo cuando el valor contiene la misma comilla que lo delimita.
+
+El porqué de estas reglas es el mismo en todas: que el parser no tenga que adivinar nada. La raíz única garantiza que el documento sea un árbol con un solo punto de entrada, de modo que un programa sabe siempre por dónde empezar a recorrerlo y cuándo ha terminado; un segundo elemento de primer nivel sería una segunda raíz y rompería esa garantía. Las comillas en los atributos delimitan dónde empieza y acaba el valor, que de otro modo podría confundirse con lo que sigue. Y los caracteres reservados se escapan porque `<` y `&` tienen un significado propio (abren una etiqueta y una entidad): si aparecen sin escapar en el texto, el parser los interpreta como sintaxis y no como contenido, como ocurre con el «&» de «Tornillos & tuercas» en el ejemplo del apartado 5.3.
 
 Un procesador XML estricto se detiene y lanza un error de análisis (fatal error) ante el primer fallo de buena formación; no intenta "adivinar" ni reparar el documento, a diferencia de un navegador procesando HTML. Es una decisión de diseño deliberada: garantiza que cualquier programa conforme al estándar interprete un documento XML exactamente igual que cualquier otro, sin ambigüedad. La implicación práctica es directa: cuando un programa genera XML automáticamente —por ejemplo, una exportación de datos—, un solo carácter mal escapado puede romper la lectura completa del archivo por cualquier sistema que lo consuma después.
 
@@ -249,14 +255,14 @@ Un procesador XML estricto se detiene y lanza un error de análisis (fatal error
 
 Un **espacio de nombres** (namespace) es un mecanismo de XML para evitar colisiones entre nombres de elemento o atributo cuando se combinan, dentro de un mismo documento, vocabularios definidos por orígenes distintos. Si dos vocabularios usan, cada uno con su propio significado, el mismo nombre de elemento —por ejemplo `titulo`—, el documento resultante sería ambiguo sin un mecanismo que los distinga.
 
-La sintaxis se basa en el atributo `xmlns`: `xmlns:prefijo="URI"` declara un espacio de nombres con un prefijo, que se aplica al elemento donde se declara y a todos sus descendientes; los elementos de ese espacio se escriben como `prefijo:elemento`. La URI es únicamente un identificador único de texto, no tiene por qué ser una dirección real que el procesador visite. También existe el espacio de nombres por defecto (`xmlns="URI"`, sin prefijo), que se aplica a los elementos sin prefijo dentro de su ámbito.
+La sintaxis se basa en el atributo `xmlns`: `xmlns:prefijo="URI"` declara un espacio de nombres con un prefijo, que se aplica al elemento donde se declara y a todos sus descendientes; los elementos de ese espacio se escriben como `prefijo:elemento`. La URI (*Uniform Resource Identifier*) es una cadena de texto que identifica algo de forma única; una URL es un tipo de URI que además dice dónde encontrar el recurso. En un espacio de nombres la URI es únicamente un identificador, no tiene por qué ser una dirección real que el procesador visite. Por convención se construye a partir de un dominio que controla quien define el vocabulario (de ahí `https://ejemplo.org/catalogo` en el ejemplo siguiente), porque eso hace muy improbable que dos vocabularios distintos usen la misma. También existe el espacio de nombres por defecto (`xmlns="URI"`, sin prefijo), que se aplica a los elementos sin prefijo dentro de su ámbito.
 
 El siguiente documento combina un vocabulario propio (`catalogo`) con SVG embebido, ambos con un elemento de nombre similar, sin colisión gracias a los espacios de nombres:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogo:producto
-    xmlns:catalogo="http://ejemplo.org/catalogo"
+    xmlns:catalogo="https://ejemplo.org/catalogo"
     xmlns:svg="http://www.w3.org/2000/svg">
     <catalogo:nombre>Teclado mecánico compacto</catalogo:nombre>
     <catalogo:icono>
@@ -281,6 +287,40 @@ El siguiente documento combina un vocabulario propio (`catalogo`) con SVG embebi
 >
 > Los espacios de nombres son la base de tecnologías que se usarán más adelante en este módulo y en el resto del ciclo: SVG embebido en HTML5, las extensiones de RSS/Atom de la UD3, y los servicios web SOAP que en su día dominaron la integración empresarial: el mismo mecanismo que aquí se presenta de forma introductoria.
 
+### 5.3 Cómo comprobar que un documento está bien formado
+
+Para saber si un documento está bien formado no hace falta leerlo con lupa: basta con pasárselo a un parser XML, que lo acepta o lo rechaza señalando el primer fallo. Una forma sencilla y reproducible es usar el parser que incluye Python 3. Guarda el documento con codificación UTF-8 y, desde una terminal abierta en la carpeta donde está el archivo, ejecuta (en Windows, si `python` no se reconoce, prueba con `py`):
+
+```
+python -c "import xml.dom.minidom; xml.dom.minidom.parse('producto.xml'); print('OK')"
+```
+
+Si el documento está bien formado, se imprime `OK`. Si no, Python muestra un error que indica el tipo de problema, la línea y la columna (la columna se cuenta desde 0 y a veces apunta justo después del carácter conflictivo). El parser se detiene en el **primer** error, así que el procedimiento habitual es corregir y volver a comprobar hasta que aparezca `OK`. Veamos el proceso completo con un documento que tiene dos fallos a la vez:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<producto id=P-1024>
+    <nombre>Tornillos & tuercas</nombre>
+    <precio>54.90</precio>
+</producto>
+```
+
+Primera comprobación. El valor del atributo `id` no lleva comillas:
+
+```
+not well-formed (invalid token): line 2, column 13
+```
+
+Se corrige escribiendo `id="P-1024"` y se vuelve a comprobar. Segunda comprobación. Ahora falla el contenido del elemento `nombre`, porque el `&` sin escapar se interpreta como el comienzo de una entidad:
+
+```
+not well-formed (invalid token): line 3, column 23
+```
+
+Se corrige escribiendo `Tornillos &amp; tuercas`. Tercera comprobación: se imprime `OK`. Estos son, además, otros dos mensajes habituales que conviene reconocer. Con el anidamiento cruzado `<precio><moneda>EUR</precio></moneda>` el parser responde `mismatched tag: line 2, column 21`, que significa que encontró una etiqueta de cierre que no corresponde con la última abierta. Con dos elementos `<producto>` seguidos al nivel superior, uno detrás de otro, responde `junk after document element: line 3, column 0`: el documento ya había terminado con la primera raíz y aparece contenido de más.
+
+Los mensajes han sido obtenidos ejecutando de verdad estos documentos con Python 3; el texto exacto puede variar ligeramente de una versión a otra, pero el tipo de error y la posición señalada serán equivalentes.
+
 ## Glosario
 
 - **Marcado (markup):** anotación insertada en un texto para indicar estructura, semántica o presentación.
@@ -302,6 +342,15 @@ El siguiente documento combina un vocabulario propio (`catalogo`) con SVG embebi
 - **Espacio de nombres (namespace):** mecanismo de XML para evitar colisiones de nombres al combinar vocabularios de distinto origen.
 - **W3C:** World Wide Web Consortium, organismo que desarrolla y mantiene estándares web como XML, los espacios de nombres o SVG.
 - **Parser (procesador):** programa que analiza sintácticamente un documento de marcas.
+- **Vocabulario:** conjunto de nombres de elementos y atributos de un tipo de documento, con su significado.
+- **Metalenguaje:** lenguaje para definir otros lenguajes (SGML, XML).
+- **DOM (Document Object Model):** representación en memoria de un documento como árbol de objetos que un programa puede recorrer y modificar.
+- **Declaración o prólogo XML:** primera línea de un documento XML (`<?xml version="1.0" encoding="UTF-8"?>`) que indica la versión y la codificación.
+- **Codificación de caracteres:** tabla que traduce cada carácter a bytes; UTF-8 es la habitual.
+- **Entidad:** secuencia que empieza por `&` y acaba en `;` y representa un carácter reservado (por ejemplo `&amp;`).
+- **URI (Uniform Resource Identifier):** cadena de texto que identifica algo de forma única; en los espacios de nombres funciona solo como identificador.
+- **WHATWG:** grupo de fabricantes de navegadores que mantiene el estándar vivo (*Living Standard*) de HTML.
+- **DTD / XML Schema:** lenguajes para describir la gramática que debe cumplir un documento XML; se estudian en la UD5.
 
 ---
 
