@@ -4,6 +4,7 @@
 
 ---
 
+## Introducción
 
 En esta unidad vas a aprender a usar HTML para transmitir y presentar información a través de la web. Analizarás la estructura de los documentos, reconocerás para qué sirve cada etiqueta y usarás las herramientas con las que se trabaja hoy de forma profesional. Ya conoces los lenguajes de marcas en general (UD1). Ahora te centras en el que más se usa en el mundo: HTML.
 
