@@ -4,11 +4,10 @@
 
 ---
 
-## Introducción
 
 En esta unidad vas a aprender a usar HTML para transmitir y presentar información a través de la web. Analizarás la estructura de los documentos, reconocerás para qué sirve cada etiqueta y usarás las herramientas con las que se trabaja hoy de forma profesional. Ya conoces los lenguajes de marcas en general (UD1). Ahora te centras en el que más se usa en el mundo: HTML.
 
-El trabajo se organiza en nueve sesiones y avanza a la vez que tu propio proyecto, un portfolio personal que irás construyendo página a página:
+La unidad avanza a la vez que tu propio proyecto, un portfolio personal que irás construyendo página a página. Se organiza en ocho apartados de contenido y un cierre:
 
 - **Apartado 1:** Los lenguajes de la web y quién los define.
 - **Apartado 2:** Anatomía de un documento HTML y el entorno de trabajo.
@@ -18,9 +17,9 @@ El trabajo se organiza en nueve sesiones y avanza a la vez que tu propio proyect
 - **Apartado 6:** Tablas de datos.
 - **Apartado 7:** Formularios.
 - **Apartado 8:** Versiones de HTML en la práctica: de HTML 4 y XHTML a HTML actual.
-- **Apartado 9:** Defensa del portfolio.
+- **Cierre:** presentación y defensa del portfolio.
 
-Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
+Estos apuntes están escritos para que puedas estudiar la unidad por tu cuenta, sin necesidad de haber asistido a clase: cada apartado define los términos que usa, explica el porqué de las decisiones y trae ejemplos completos que puedes copiar, abrir en el navegador y comprobar con el validador. También sirven, por supuesto, para repasar lo trabajado en el aula.
 
 ## Índice
 
@@ -38,6 +37,8 @@ Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consol
 ---
 
 ## 1. Los lenguajes de la web y sus estándares
+
+`// Criterios de evaluación: 2.a, 2.d`
 
 ### 1.1 Una página web es un documento con varios lenguajes
 
@@ -114,7 +115,7 @@ Un estándar solo es útil si todos los navegadores lo implementan igual. Para e
 |---|---|---|
 | **W3C** (*World Wide Web Consortium*) | Consorcio fundado en 1994 por Tim Berners-Lee, el creador de la web | CSS, SVG, MathML, XML y XHTML. Accesibilidad (WCAG). Publicó las versiones de HTML hasta HTML 5.2 |
 | **WHATWG** (*Web Hypertext Application Technology Working Group*) | Grupo creado en 2004 por Apple, Mozilla y Opera | El estándar de HTML actual (*HTML Living Standard*) y el DOM |
-| **IETF** (*Internet Engineering Task Force*) | Organismo de estándares de Internet, que publica documentos llamados RFC | El protocolo HTTP y la sintaxis de los URI. Publicó HTML 2.0 como RFC 1866 (1995) |
+| **IETF** (*Internet Engineering Task Force*) | Organismo de estándares de Internet, que publica documentos llamados RFC | El protocolo HTTP (con el que un navegador pide páginas a un servidor web) y la sintaxis de los URI (los identificadores de recursos, de los que las URL son un tipo). Publicó HTML 2.0 como RFC 1866 (1995) |
 | **Ecma International** | Organismo de estandarización (comité TC39) | ECMAScript, el estándar en el que se basa JavaScript |
 
 La relación entre W3C y WHATWG explica por qué hoy no existe «HTML6». A principios de los 2000, el W3C apostaba por un XHTML 2.0 estricto e incompatible con las páginas existentes. Los fabricantes de navegadores no estaban de acuerdo, crearon el WHATWG y empezaron a desarrollar por su cuenta lo que acabaría siendo HTML5. Durante años hubo dos especificaciones de HTML en paralelo. En **2019, W3C y WHATWG firmaron un acuerdo** por el que el WHATWG mantiene una **única versión de HTML y del DOM**, y el W3C colabora en ella en lugar de publicar la suya.
@@ -178,6 +179,8 @@ XHTML es HTML escrito con las reglas de XML: todas las etiquetas cerradas (tambi
 
 ## 2. Estructura de un documento HTML y herramientas de trabajo
 
+`// Criterios de evaluación: 2.b, 2.e`
+
 ### 2.1 Elementos, etiquetas y atributos
 
 Un documento HTML está formado por **elementos**. Un elemento se compone normalmente de una **etiqueta de apertura**, un **contenido** y una **etiqueta de cierre**:
@@ -208,7 +211,7 @@ Este es el esqueleto completo de la página principal de un portfolio. Es válid
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Portfolio de Ana Martín · Desarrolladora web</title>
-  <meta name="description" content="Portfolio de Ana Martín, estudiante de Desarrollo de Aplicaciones Web en el IES Río Arba.">
+  <meta name="description" content="Portfolio de Ana Martín, estudiante de Desarrollo de Aplicaciones Web.">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -340,13 +343,13 @@ El símbolo `>` significa «dentro de» y `*3` significa «repetido 3 veces». E
 - **Elements / Inspector:** muestra el árbol DOM real que ha construido el navegador (no el código fuente que escribiste, que puede ser distinto si había errores corregidos). Al pasar el ratón sobre un nodo se resalta en la página.
 - **Console / Consola:** mensajes y errores. También permite ejecutar JavaScript sobre la página.
 - **Emulación de dispositivos:** muestra la página como se vería en un móvil (en Chrome y Edge, Ctrl+Mayús+M con DevTools abiertas).
-- **Árbol de accesibilidad:** muestra cómo interpreta la página un lector de pantalla (lo usarás en la sesión 5).
+- **Árbol de accesibilidad:** muestra cómo interpreta la página un lector de pantalla (se trabaja en el apartado 5.4).
 
 **Validador: Nu Html Checker.** Es el validador oficial de HTML del W3C, disponible en validator.w3.org/nu. Permite comprobar una URL, subir un archivo o pegar código. Conviene pasar cada página por el validador antes de darla por terminada.
 
 **Vista previa en vivo (opcional).** Hay extensiones de VS Code que abren la página en el navegador y la recargan cada vez que guardas (por ejemplo, *Live Preview*, de Microsoft, o *Live Server*). Son cómodas, pero no imprescindibles: basta con abrir el archivo en el navegador y pulsar F5.
 
-**Control de versiones y publicación: Git y GitHub.** El portfolio se guarda en un repositorio y se puede publicar gratis como web con **GitHub Pages**. Lo verás en clase al organizar la entrega.
+**Control de versiones y publicación: Git y GitHub (opcional en esta unidad).** Git es el sistema con el que los equipos de desarrollo guardan el historial de cambios de un proyecto, y GitHub es la plataforma donde se alojan esos repositorios. Desde GitHub se puede publicar gratis una web estática con **GitHub Pages**. En este módulo el portfolio se entrega como carpeta comprimida (un archivo ZIP) a través del aula virtual y se abre en local, sin publicarlo en internet; publicarlo es una opción que puedes explorar por tu cuenta, sin datos personales que no quieras hacer públicos.
 
 > **ALTERNATIVAS Y CRITERIO**
 >
@@ -376,6 +379,8 @@ El símbolo `>` significa «dentro de» y `*3` significa «repetido 3 veces». E
 ---
 
 ## 3. Texto con significado
+
+`// Criterios de evaluación: 2.c`
 
 ### 3.1 La regla de oro: semántica antes que apariencia
 
@@ -462,7 +467,7 @@ Documento válido según el Nu Html Checker, que reúne casi todos los elementos
 </head>
 <body>
   <h1>Sobre mí</h1>
-  <p>Me llamo Ana y estudio <abbr title="Desarrollo de Aplicaciones Web">DAW</abbr> en el IES Río Arba de Tauste. Antes cursé el ciclo de <abbr title="Sistemas Microinformáticos y Redes">SMR</abbr>, así que las redes no me asustan.</p>
+  <p>Me llamo Ana y estudio <abbr title="Desarrollo de Aplicaciones Web">DAW</abbr> en un instituto de FP. Antes cursé el ciclo de <abbr title="Sistemas Microinformáticos y Redes">SMR</abbr>, así que las redes no me asustan.</p>
 
   <h2>Qué sé hacer</h2>
   <ul>
@@ -482,7 +487,7 @@ Documento válido según el Nu Html Checker, que reúne casi todos los elementos
     <li>Hacer una primera versión que funcione.</li>
     <li>Revisarla con el validador y mejorarla.</li>
   </ol>
-  <p>Una regla que aprendí en clase: <em>nunca</em> se elige una etiqueta por cómo se ve, sino por lo que significa.</p>
+  <p>Una regla que aprendí en el módulo: <em>nunca</em> se elige una etiqueta por cómo se ve, sino por lo que significa.</p>
 
   <h2>Glosario personal</h2>
   <dl>
@@ -504,7 +509,7 @@ Documento válido según el Nu Html Checker, que reúne casi todos los elementos
 
   <hr>
   <p><small>Última actualización: <time datetime="2026-10-14">14 de octubre de 2026</time>.</small></p>
-  <!-- Pendiente: añadir enlace a mi GitHub en la S4 -->
+  <!-- Pendiente: añadir enlace a mi GitHub en la página de enlaces -->
 </body>
 </html>
 ```
@@ -527,6 +532,8 @@ Documento válido según el Nu Html Checker, que reúne casi todos los elementos
 ---
 
 ## 4. Enlaces, rutas e imágenes
+
+`// Criterios de evaluación: 2.c, 2.e`
 
 ### 4.1 El elemento `a`
 
@@ -635,7 +642,7 @@ Documento válido según el Nu Html Checker. El validador no comprueba que los a
   <h1>Ana Martín</h1>
   <figure>
     <img src="img/ana.jpg" alt="Ana Martín sonriendo delante de un ordenador" width="320" height="320">
-    <figcaption>En el aula de informática del IES Río Arba.</figcaption>
+    <figcaption>En el aula de informática del instituto.</figcaption>
   </figure>
   <p>Estudiante de Desarrollo de Aplicaciones Web. Puedes leer <a href="sobre-mi.html">más sobre mí y lo que sé hacer</a> o ir directamente a <a href="#ultimo-proyecto">mi último proyecto</a>.</p>
 
@@ -683,6 +690,8 @@ Documento válido según el Nu Html Checker. El validador no comprueba que los a
 
 ## 5. Estructura semántica de la página
 
+`// Criterios de evaluación: 2.b, 2.c`
+
 ### 5.1 El problema: la «sopa de divs»
 
 Antes de HTML5 no había elementos para las zonas de una página (cabecera, menú, contenido, pie), así que todo se construía con `div`, el contenedor genérico, diferenciado solo por el nombre de sus clases. Hoy se sigue viendo mucho, en plantillas antiguas y en código generado por herramientas y por IA. Este documento es un ejemplo:
@@ -711,7 +720,7 @@ Antes de HTML5 no había elementos para las zonas de una página (cabecera, men�
     </div>
     <div class="lateral">
       <div class="titulo">Sobre mí</div>
-      <div class="texto">Estudio DAW en Tauste.</div>
+      <div class="texto">Estudio Desarrollo de Aplicaciones Web.</div>
     </div>
   </div>
   <div class="pie">© 2026 Ana Martín</div>
@@ -784,7 +793,7 @@ Refactorización del documento anterior. También es válido, pero ahora la estr
 
   <aside>
     <h2>Sobre mí</h2>
-    <p>Estudio DAW en Tauste.</p>
+    <p>Estudio Desarrollo de Aplicaciones Web.</p>
   </aside>
 
   <footer>
@@ -840,11 +849,17 @@ Existe el atributo `role` para asignar roles a mano (`<div role="navigation">`),
 
 ## 6. Tablas de datos
 
+`// Criterios de evaluación: 2.c`
+
 ### 6.1 Cuándo usar una tabla
 
 Una tabla sirve para **datos tabulares**: información que tiene sentido leída por filas y por columnas a la vez, como un horario, una comparativa o un listado de notas. Durante los años 90 y 2000, las tablas se usaron también para **maquetar** (colocar la cabecera, el menú lateral y el contenido en celdas). Esa práctica es incorrecta: un lector de pantalla lee la página celda a celda, anunciando «fila 2, columna 1», y la estructura no tiene ningún significado. La disposición visual se hace con CSS (UD3).
 
+¿Cómo saber si unos datos son tabulares? Con un criterio práctico: **cuenta los ejes**. Un horario semanal depende de dos cosas a la vez, la hora y el día; para saber qué hay, hay que leer una fila y una columna a la vez («miércoles a las 9:25, lenguajes de marcas»). Son dos ejes, así que es una tabla. La comparativa de tres planes de móvil (precio, gigas y minutos) también lo es: tres planes por tres características. Una lista de tecnologías que conoces tiene un solo eje, y es una lista (`ul`). Un glosario de pares término-definición es una lista de descripciones (`dl`). Un menú de navegación con cuatro enlaces es un `nav` con una lista dentro. Si en una «tabla» falta uno de los dos ejes, lo que hay es una lista disfrazada. Elegir mal entre tabla y lista no es un error de sintaxis, y el validador no protesta ni siquiera ante una tabla de una sola columna: es un error de criterio, y solo lo detecta una persona que sepa qué significa cada elemento.
+
 ### 6.2 Elementos de una tabla
+
+Una tabla HTML se construye **por filas**, no por columnas. El elemento `table` es el contenedor; dentro va una sucesión de filas (`tr`, *table row*) y dentro de cada fila, celdas. Hay dos tipos de celda, y esa distinción es el punto central de esta sección: `td` (*table data*) contiene un **dato** y `th` (*table header*) contiene un **encabezado**, es decir, una celda que dice qué son las demás. Un encabezado no es un dato escrito en negrita.
 
 | Elemento | Función |
 |---|---|
@@ -857,6 +872,12 @@ Una tabla sirve para **datos tabulares**: información que tiene sentido leída 
 | `colgroup`, `col` | Agrupan columnas para aplicarles estilo |
 
 `scope` es lo que permite a un lector de pantalla anunciar, al llegar a una celda, a qué encabezados pertenece («Horas: 2000»). En tablas muy complejas, donde `scope` no basta, se asocia cada celda a sus encabezados con los atributos `id` (en `th`) y `headers` (en `td`).
+
+Por defecto, los navegadores muestran los `th` en negrita y centrados, y ese aspecto lleva a mucha gente a escribir la cabecera con `td` y `<b>` para conseguir lo mismo. Visualmente el resultado es idéntico, pero se pierde lo importante: para un lector de pantalla, un buscador o un programa que lea la página, una fila de `td` en negrita es una fila de datos más, y la relación entre cada dato y su encabezado desaparece. Con `scope="col"` un `th` dice «yo encabezo la columna entera que tengo debajo», y con `scope="row"`, «yo encabezo la fila entera que tengo a la derecha». En tablas sencillas el navegador suele deducirlo solo, pero escribirlo lo deja explícito y es la forma recomendada.
+
+Los grupos de filas tienen una ventaja práctica: al imprimir una tabla larga, el navegador puede repetir la cabecera en cada página, y con CSS (UD3) se podrá dar un estilo distinto a la cabecera, al cuerpo y al pie. En HTML 4, el `tfoot` tenía que escribirse *antes* del `tbody`; en el HTML actual va al final, donde se lee de forma natural, y el navegador lo muestra siempre abajo. Úsalo solo si hay un pie con sentido (un total, una nota): un pie sin motivo es peor que no tener ninguno. El `caption` tiene que ser el **primer hijo** de `table`: ni dentro de `thead` ni después de las filas.
+
+Una tabla escrita así no muestra bordes en pantalla. Es lo normal: los bordes, el relleno y los colores son presentación y se hacen con CSS (UD3). No se arregla con el atributo `border="1"`, que es obsoleto (ver 6.5). Para comprobar que los encabezados se han entendido como tales, abre el panel de accesibilidad de DevTools y selecciona una celda de la cabecera y otra de la primera columna: el árbol de accesibilidad las muestra como encabezados de columna y de fila (roles ARIA `columnheader` y `rowheader`) y el resto de celdas como celdas de datos (`cell`). El nombre exacto con que lo muestra el panel puede variar según el navegador.
 
 ### 6.3 Celdas combinadas
 
@@ -878,6 +899,76 @@ Ejemplo: un horario de 6 columnas (hora + 5 días), 2 filas de datos:
 ```
 
 En la segunda fila solo se escriben 3 celdas (hora, miércoles, jueves), porque lunes, martes y viernes vienen ocupados desde la fila anterior.
+
+La tabla es una cuadrícula, y **cada fila tiene que acabar sumando el mismo número de columnas** que la cabecera. Cuando una celda usa `rowspan`, ocupa también un hueco en las filas de debajo; en esas filas el hueco ya está ocupado, así que esa celda **no se escribe de nuevo**. Si se escribe, la fila se queda con una columna de más y el navegador la empuja a la derecha, fuera de la cuadrícula. Un `rowspan` no añade filas: reserva un hueco en las que ya existen. El método fiable es contar, fila por fila: cuántas celdas escribes tú, más cuántas vienen ocupadas desde arriba. La suma tiene que coincidir con la de la cabecera. Y, antes de escribir código, conviene dibujar la tabla en papel marcando qué celdas se fusionan, que es lo que hace cualquiera que trabaje con tablas complejas.
+
+Un segundo ejemplo, con tres días y cuatro columnas contando la de la hora:
+
+```text
++-------+--------------+----------------+-----------+
+| Hora  | Lunes        | Martes         | Miércoles |
++-------+--------------+----------------+-----------+
+| 16:00 | Programación | Bases de datos | Tutoría   |
++-------+ (2 filas)    +----------------+-----------+
+| 17:00 |              | Proyecto (2 columnas)        |
++-------+--------------+------------------------------+
+| 18:00 | Taller libre (3 columnas)                   |
++-------+---------------------------------------------+
+```
+
+El documento completo, válido según el Nu Html Checker:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horario de tarde · Demo</title>
+</head>
+<body>
+  <h1>Horario de tarde</h1>
+  <table>
+    <caption>Horario del taller de tarde</caption>
+    <thead>
+      <tr>
+        <th scope="col">Hora</th>
+        <th scope="col">Lunes</th>
+        <th scope="col">Martes</th>
+        <th scope="col">Miércoles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">16:00</th>
+        <td rowspan="2">Programación</td>
+        <td>Bases de datos</td>
+        <td>Tutoría</td>
+      </tr>
+      <tr>
+        <th scope="row">17:00</th>
+        <td colspan="2">Proyecto</td>
+      </tr>
+      <tr>
+        <th scope="row">18:00</th>
+        <td colspan="3">Taller libre</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+```
+
+Cuenta de columnas, fila por fila. Cabecera: hora, lunes, martes y miércoles, cuatro. Primera fila de datos: hora, Programación, Bases de datos y Tutoría, cuatro. Segunda fila: la hora; después, el hueco que baja desde «Programación», que **no se escribe**; y «Proyecto», que ocupa dos columnas. Es decir, 1 + 1 (el hueco) + 2 = 4. Tercera fila: la hora y «Taller libre», que ocupa tres columnas: 1 + 3 = 4. Todas suman cuatro.
+
+**Qué pasa cuando no suman.** Si en la fila de las 17:00 se escribe también `<td>Programación</td>` (la celda que ya baja desde arriba), esa fila tiene cinco columnas en una tabla de cuatro. El navegador no se queja y dibuja la celda sobrante desplazada a la derecha, pero el validador sí lo detecta. Esta es la salida real del Nu Html Checker sobre el documento anterior con esa línea añadida como nueva línea 29 (los números son `línea.columna` de inicio y fin del fragmento señalado):
+
+```text
+29.38-30.11: info warning: A table row was 5 columns wide and exceeded the column count established by the first row (4).
+28.30-29.24: error: Table column 5 established by element “td” has no cells beginning in it.
+```
+
+El validador dice exactamente lo que se había contado a mano: una fila tiene cinco columnas y la primera fijó cuatro. Es uno de los casos en los que el validador sirve de red de seguridad; en 6.7 se verán otros en los que no.
 
 ### 6.4 Ejemplo completo
 
@@ -907,13 +998,13 @@ Documento válido según el Nu Html Checker, con una tabla con `thead`/`tbody`/`
       <tr>
         <th scope="row">2024-2026</th>
         <td>CFGM Sistemas Microinformáticos y Redes</td>
-        <td>IES Río Arba</td>
+        <td>IES Ejemplo</td>
         <td>2000</td>
       </tr>
       <tr>
         <th scope="row">2026-2028</th>
         <td>CFGS Desarrollo de Aplicaciones Web</td>
-        <td>IES Río Arba</td>
+        <td>IES Ejemplo</td>
         <td>2000</td>
       </tr>
     </tbody>
@@ -977,6 +1068,104 @@ En materiales antiguos aparecen tablas con atributos de presentación. Esta es l
 
 Son avisos (*info warning*), no errores: los atributos son obsoletos y todo eso se hace con CSS. Un detalle curioso: el mensaje sobre `border` en `table` sugiere una regla CSS para `img`. Es una errata del propio validador, que reutiliza un texto pensado para imágenes. Las herramientas también se equivocan, y hay que leer sus mensajes con criterio.
 
+### 6.6 Encabezados a dos niveles: `scope="colgroup"`
+
+A veces la cabecera tiene dos niveles: arriba, un grupo (la evaluación) y debajo, el detalle (el tipo de prueba). La celda del grupo abarca varias columnas, así que es un `th` con `colspan` y con `scope="colgroup"`, que significa «encabezo un grupo de columnas». Y la celda «Alumno/a» ocupa las dos filas de la cabecera, así que lleva `rowspan="2"`. Es exactamente lo visto en 6.3 aplicado a los encabezados:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notas por evaluación · Demo</title>
+</head>
+<body>
+  <h1>Notas del grupo</h1>
+  <table>
+    <caption>Notas por evaluación y tipo de prueba (grupo ficticio)</caption>
+    <thead>
+      <tr>
+        <th rowspan="2" scope="col">Alumno/a</th>
+        <th colspan="2" scope="colgroup">1.ª evaluación</th>
+        <th colspan="2" scope="colgroup">2.ª evaluación</th>
+      </tr>
+      <tr>
+        <th scope="col">Teoría</th>
+        <th scope="col">Práctica</th>
+        <th scope="col">Teoría</th>
+        <th scope="col">Práctica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Alumna A</th>
+        <td>7</td>
+        <td>8</td>
+        <td>6</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <th scope="row">Alumno B</th>
+        <td>5</td>
+        <td>7</td>
+        <td>6</td>
+        <td>7</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
+```
+
+Documento válido según el Nu Html Checker. Cuenta de columnas: la primera fila de la cabecera suma 1 + 2 + 2 = 5; la segunda tiene solo 4 celdas escritas, porque «Alumno/a» baja desde arriba y no se vuelve a escribir. En este caso `scope` sigue bastando. Cuando una tabla es tan irregular que ni así queda claro a qué encabezados pertenece cada celda, se usa el par `id` en el `th` y `headers` en el `td`, con la lista de los `id` de los encabezados correspondientes. Es raro, pero conviene saber que existe.
+
+### 6.7 Válido no significa bien hecho: tres tablas
+
+Como en la sopa de divs (apartado 5.1), el validador comprueba que el código está permitido, no que tenga sentido. Estas tres tablas pasan o casi pasan el validador y, sin embargo, están mal.
+
+**Primera: cabecera sin encabezados.** El documento completo es válido, sin errores ni avisos:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notas · Demo</title>
+</head>
+<body>
+  <h1>Notas de la primera evaluación</h1>
+  <table>
+    <tr><td><b>Módulo</b></td><td><b>Nota</b></td><td><b>Horas</b></td></tr>
+    <tr><td>Lenguajes de marcas</td><td>7</td><td>67</td></tr>
+    <tr><td>Programación</td><td>6</td><td>230</td></tr>
+    <tr><td>Bases de datos</td><td>8</td><td>130</td></tr>
+  </table>
+</body>
+</html>
+```
+
+En el navegador se ve perfecta, pero la cabecera está hecha con `td` y `<b>`: para un lector de pantalla todas las celdas son datos y no existe ninguna cabecera. Falta además el `caption`. Se arregla pasando la primera fila a un `thead` con `th scope="col"` y añadiendo el título. Es el error más frecuente de las tablas que se ven en internet.
+
+**Segunda: la tabla de maquetación.** También válida, sin errores ni avisos:
+
+```html
+<table>
+  <tr>
+    <td colspan="2"><h1>Mi web</h1></td>
+  </tr>
+  <tr>
+    <td><a href="index.html">Inicio</a><br><a href="contacto.html">Contacto</a></td>
+    <td><p>Bienvenida a mi página.</p></td>
+  </tr>
+</table>
+```
+
+Es la web de los años noventa: una tabla para colocar la cabecera, el menú y el contenido. Funciona y es incorrecta, porque no hay datos tabulares, hay maquetación. El validador no tiene forma de saber que lo que hay en las celdas no son datos. Cabecera, menú y contenido van en `header`, `nav` y `main`, y la disposición visual se hace con CSS (UD3).
+
+**Tercera: atributos de presentación obsoletos**, ya vistos en 6.5. En este caso el validador sí avisa, pero con avisos y no con errores: es código antiguo que el navegador entiende y que no debe escribirse. Todo eso se hace hoy con CSS.
+
 > **ALTERNATIVAS Y CRITERIO**
 >
 > Unos datos se pueden presentar como tabla, como lista (`ul` o `dl`) o como tarjetas maquetadas con CSS. El criterio es la **dimensión** de los datos. Si cada dato depende de **dos ejes** (fila y columna: qué módulo hay el martes a las 10:20), es una tabla. Si solo hay un eje (una lista de habilidades) o pares nombre-valor (una ficha), una lista es más sencilla y más accesible.
@@ -987,10 +1176,15 @@ Son avisos (*info warning*), no errores: los atributos son obsoletos y todo eso 
 > - **Usar `td` con negrita en lugar de `th`** para los encabezados. Visualmente queda igual, pero se pierde la relación entre encabezado y datos.
 > - **Filas que no suman lo mismo** por olvidar las celdas ocupadas por un `rowspan`. La tabla se descuadra y las celdas «sobrantes» se desplazan a la derecha.
 > - **Olvidar `caption`.** Sin él, quien usa un lector de pantalla no sabe de qué es la tabla hasta haber leído varias celdas.
+- **Colocar el `caption` en un sitio que no es el primer hijo de `table`**: dentro del `thead` o después de las filas.
+- **Contar el `rowspan` como si añadiera una fila.** No añade filas: reserva un hueco en las que ya existen, y esa celda no se vuelve a escribir en ellas.
+- **Elegir tabla donde falta un eje.** Una tabla de una sola columna o de pares nombre-valor es en realidad una lista.
 
 ---
 
 ## 7. Formularios
+
+`// Criterios de evaluación: 2.c, 2.d`
 
 ### 7.1 Qué hace un formulario
 
@@ -1179,7 +1373,7 @@ Detalles a observar:
 - El `pattern` del teléfono admite nueve cifras empezando por 6, 7, 8 o 9 (móviles y fijos en España), y el `title` explica el formato al usuario.
 - La casilla de privacidad es obligatoria y el texto dice para qué se usarán los datos. La normativa de protección de datos exige informar de la finalidad y **no recoger más datos de los necesarios**. Por eso el teléfono no es obligatorio.
 - El formulario de búsqueda va dentro de `search`, el elemento de región de búsqueda.
-- Un sitio estático, como el portfolio publicado en GitHub Pages, **no tiene programa en el servidor** que reciba el formulario. En el portfolio el formulario se construye igual, sabiendo que enviarlo no tendrá efecto hasta que haya un servidor detrás.
+- Un sitio estático, como el portfolio de esta unidad, **no tiene programa en el servidor** que reciba el formulario. En el portfolio el formulario se construye igual, sabiendo que enviarlo no tendrá efecto hasta que haya un servidor detrás.
 
 > **ALTERNATIVAS Y CRITERIO**
 >
@@ -1198,9 +1392,11 @@ Detalles a observar:
 
 ## 8. Versiones de HTML en la práctica
 
+`// Criterios de evaluación: 2.d, 2.a`
+
 ### 8.1 Qué cambió entre HTML 4 / XHTML y el HTML actual
 
-En el bloque 1 viste la historia. Este bloque se centra en las diferencias concretas que te encontrarás al leer o actualizar páginas antiguas, que siguen siendo muchas en Internet:
+En el apartado 1.4 se repasó la historia de HTML. Este apartado se centra en las diferencias concretas que te encontrarás al leer o actualizar páginas antiguas, que siguen siendo muchas en Internet:
 
 | Aspecto | HTML 4.01 / XHTML 1.0 | HTML actual |
 |---|---|---|
@@ -1215,11 +1411,11 @@ En el bloque 1 viste la historia. Este bloque se centra en las diferencias concr
 | Elementos vacíos | Obligatorio `<br />` en XHTML | `<br>` (se acepta `<br />`) |
 | Mayúsculas | Admitidas en HTML 4, prohibidas en XHTML | Admitidas, pero por convención se escribe todo en minúsculas |
 
-**Elementos obsoletos** que conviene reconocer: `font`, `center`, `big`, `strike`, `tt`, `acronym` (sustituido por `abbr`), `frame`, `frameset` y `noframes` (páginas divididas en marcos), `applet` (applets de Java), `marquee` (texto en movimiento) y `blink` (texto parpadeante, que nunca fue estándar). **Elementos redefinidos** que siguen siendo válidos con otro significado: `b`, `i`, `s`, `small`, `hr` (bloque 3).
+**Elementos obsoletos** que conviene reconocer: `font`, `center`, `big`, `strike`, `tt`, `acronym` (sustituido por `abbr`), `frame`, `frameset` y `noframes` (páginas divididas en marcos), `applet` (applets de Java), `marquee` (texto en movimiento) y `blink` (texto parpadeante, que nunca fue estándar). **Elementos redefinidos** que siguen siendo válidos con otro significado: `b`, `i`, `s`, `small`, `hr` (apartado 3.5).
 
 ### 8.2 Actualizar una página antigua con el validador, paso a paso
 
-Este es el artefacto de la sesión 8: la página de una academia ficticia tal como se escribía en 2005, en HTML 4.01 Transitional, con maquetación en tablas y formato con `font`.
+Este es el ejercicio de actualización: la página de una academia ficticia tal como se escribía en 2005, en HTML 4.01 Transitional, con maquetación en tablas y formato con `font`.
 
 **Paso 1: el documento original.**
 
@@ -1386,6 +1582,8 @@ Devuelve `"CSS1Compat"` en modo estándar (y en el casi estándar) y `"BackCompa
 - **Atributo global:** atributo que se puede usar en cualquier elemento (`id`, `class`, `lang`, `title`, `hidden`, `data-*`).
 - **Árbol de accesibilidad:** representación del documento que el navegador entrega a las tecnologías de apoyo, con el rol y el nombre de cada elemento.
 - **Categoría de contenido:** clasificación de los elementos HTML (flujo, fraseo, sección, encabezado, incrustado, interactivo, metadatos) que determina dónde puede ir cada uno.
+- **Celda combinada:** celda de una tabla que ocupa varias columnas (`colspan`) o varias filas (`rowspan`).
+- **Dato tabular:** información que solo se entiende leída por filas y por columnas a la vez (un horario, una comparativa).
 - **DevTools:** herramientas de desarrollo integradas en el navegador (inspector, consola, red, accesibilidad).
 - **DOCTYPE:** declaración inicial del documento. En HTML actual, `<!DOCTYPE html>`, que activa el modo estándar.
 - **DOM (*Document Object Model*):** árbol de objetos que el navegador construye en memoria a partir del documento.
@@ -1397,6 +1595,7 @@ Devuelve `"CSS1Compat"` en modo estándar (y en el casi estándar) y `"BackCompa
 - **Etiqueta:** marca que delimita un elemento: `<p>` (apertura) o `</p>` (cierre).
 - **GET / POST:** métodos de envío de un formulario: en la URL o en el cuerpo de la petición HTTP.
 - **HTML Living Standard:** especificación única y sin números de versión de HTML, mantenida por el WHATWG desde el acuerdo con el W3C de 2019.
+- **HTTP (*HyperText Transfer Protocol*):** protocolo con el que un navegador pide páginas a un servidor web y este se las entrega.
 - **HTTPS:** HTTP sobre una conexión cifrada.
 - **Landmark (región):** zona de la página con un rol de accesibilidad (`banner`, `navigation`, `main`…) que sirve de atajo en los lectores de pantalla.
 - **Lector de pantalla:** programa que lee en voz alta o en braille el contenido de la pantalla.
@@ -1404,8 +1603,11 @@ Devuelve `"CSS1Compat"` en modo estándar (y en el casi estándar) y `"BackCompa
 - **Nu Html Checker:** validador oficial de HTML del W3C (validator.w3.org/nu).
 - **Quirks mode:** modo de compatibilidad con páginas antiguas que activa un navegador cuando falta el DOCTYPE o es muy antiguo.
 - **Ruta relativa:** ruta que se interpreta a partir de la ubicación del documento actual (`img/foto.jpg`, `../index.html`).
+- **`scope`:** atributo de `th` que indica si el encabezado lo es de una columna (`col`), de una fila (`row`) o de un grupo de columnas (`colgroup`).
 - **Semántica:** significado de un elemento, independiente de su apariencia.
+- **Servidor web:** programa que recibe peticiones de los navegadores y entrega las páginas y archivos de un sitio.
 - **Texto alternativo (`alt`):** texto que sustituye a una imagen para quien no puede verla.
+- **URI / URL:** cadena de texto que identifica un recurso; la URL (*Uniform Resource Locator*) es el tipo de URI que además indica dónde encontrarlo.
 - **URL absoluta:** dirección completa, con protocolo y dominio.
 - **Validador:** programa que comprueba que un documento cumple las reglas de un estándar.
 - **Viewport:** zona visible de la página en el dispositivo.
