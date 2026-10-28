@@ -10,15 +10,15 @@ En esta unidad vas a aprender a usar HTML para transmitir y presentar informaci�
 
 El trabajo se organiza en nueve sesiones y avanza a la vez que tu propio proyecto, un portfolio personal que irás construyendo página a página:
 
-- **Sesión 1:** Los lenguajes de la web y quién los define.
-- **Sesión 2:** Anatomía de un documento HTML y el entorno de trabajo.
-- **Sesión 3:** Texto con significado: encabezados, párrafos, listas y semántica en línea.
-- **Sesión 4:** Enlaces, rutas e imágenes.
-- **Sesión 5:** Estructura semántica de la página.
-- **Sesión 6:** Tablas de datos.
-- **Sesión 7:** Formularios.
-- **Sesión 8:** Versiones de HTML en la práctica: de HTML 4 y XHTML a HTML actual.
-- **Sesión 9:** Defensa del portfolio.
+- **Apartado 1:** Los lenguajes de la web y quién los define.
+- **Apartado 2:** Anatomía de un documento HTML y el entorno de trabajo.
+- **Apartado 3:** Texto con significado: encabezados, párrafos, listas y semántica en línea.
+- **Apartado 4:** Enlaces, rutas e imágenes.
+- **Apartado 5:** Estructura semántica de la página.
+- **Apartado 6:** Tablas de datos.
+- **Apartado 7:** Formularios.
+- **Apartado 8:** Versiones de HTML en la práctica: de HTML 4 y XHTML a HTML actual.
+- **Apartado 9:** Defensa del portfolio.
 
 Estos apuntes son un material de apoyo y consulta. Úsalos para repasar y consolidar lo trabajado en clase, no como primer contacto con cada tema.
 
