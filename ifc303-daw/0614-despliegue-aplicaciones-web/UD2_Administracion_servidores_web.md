@@ -584,7 +584,11 @@ Este patrón coincide con todas las líneas que empiezan por `Timeout`, `KeepAli
 143:LogLevel warn
 ```
 
-La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con `grep -n -B4 "^Timeout" /etc/apache2/apache2.conf`, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
+La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con este comando, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
+
+```bash
+grep -n -B4 "^Timeout" /etc/apache2/apache2.conf
+```
 
 ```text
 88-

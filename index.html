@@ -23,10 +23,14 @@
        porque vue.css le da su propio fondo y taparía el del <pre>. */
 
     /* Comandos: lo que se teclea */
-    .markdown-section pre[data-lang="bash"] {
+    .markdown-section pre[data-lang="bash"],
+    .markdown-section pre[data-lang="powershell"],
+    .markdown-section pre[data-lang="cmd"] {
       border-left: 4px solid #42b983;
     }
-    .markdown-section pre[data-lang="bash"]::after {
+    .markdown-section pre[data-lang="bash"]::after,
+    .markdown-section pre[data-lang="powershell"]::after,
+    .markdown-section pre[data-lang="cmd"]::after {
       content: "comando";
     }
 
@@ -40,6 +44,11 @@
     }
     .markdown-section pre[data-lang="text"]::after {
       content: "salida";
+    }
+
+    /* Resto de texto (árboles, esquemas, fórmulas...): sin etiqueta */
+    .markdown-section pre[data-lang="plaintext"]::after {
+      content: none;
     }
   </style>
 </head>
