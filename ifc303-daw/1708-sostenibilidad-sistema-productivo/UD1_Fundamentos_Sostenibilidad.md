@@ -488,7 +488,7 @@ Para que un dato sirva para rendir cuentas tiene que tener estos elementos. Ejem
 
 Y un cálculo que siempre conviene repetir: la variación porcentual se calcula **sobre el valor de partida**.
 
-```text
+```plaintext
 Reducción = (valor inicial − valor final) / valor inicial × 100
           = (22.032,56 − 20.293,81) / 22.032,56 × 100
           = 1.738,75 / 22.032,56 × 100

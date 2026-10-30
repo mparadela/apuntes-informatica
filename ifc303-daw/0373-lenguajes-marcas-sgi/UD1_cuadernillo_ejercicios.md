@@ -87,7 +87,7 @@ Respuesta abierta — comprueba que el ejemplo que elijas sea realmente un lengu
 
 Lee esta nota interna de una empresa y audítala: identifica qué está bien razonado, qué es cuestionable o incorrecto, y qué cambiarías, ordenado por gravedad.
 
-```text
+```plaintext
 NOTA INTERNA — Departamento de Sistemas
 A partir de este trimestre, el catálogo de productos de la
 tienda se guardará en el formato binario propio de nuestra
@@ -429,7 +429,7 @@ Audita este documento XML generado automáticamente por un script de exportació
 
 Para cada documento, indica si está bien formado o no, y por qué:
 
-```text
+```plaintext
 DOCUMENTO A:
 <a><b>texto</b></a>
 DOCUMENTO B:

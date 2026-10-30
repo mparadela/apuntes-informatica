@@ -16,6 +16,31 @@
       color: #777;
       text-align: center;
     }
+
+    /* Bloques de código: este <style> va después de vue.css y estos
+       selectores son más específicos que los del tema, así que no hace
+       falta !important. El fondo se pone también en el <code> interior
+       porque vue.css le da su propio fondo y taparía el del <pre>. */
+
+    /* Comandos: lo que se teclea */
+    .markdown-section pre[data-lang="bash"] {
+      border-left: 4px solid #42b983;
+    }
+    .markdown-section pre[data-lang="bash"]::after {
+      content: "comando";
+    }
+
+    /* Salida: lo que se ve */
+    .markdown-section pre[data-lang="text"],
+    .markdown-section pre[data-lang="text"] > code {
+      background-color: #efefef;
+    }
+    .markdown-section pre[data-lang="text"] {
+      border-left: 4px solid #ccc;
+    }
+    .markdown-section pre[data-lang="text"]::after {
+      content: "salida";
+    }
   </style>
 </head>
 <body>
