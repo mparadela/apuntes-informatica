@@ -56,7 +56,7 @@ El bloque `<Directory>` fija las reglas de esa carpeta: `AllowOverride All` perm
 
 ## Convenciones
 
-- Los comandos van en bloques `bash`; la salida esperada, en bloques `text`, justo debajo.
+- Los comandos que tienes que escribir van en un recuadro marcado como «comando». Justo debajo, en otro marcado como «salida», está lo que debe aparecer en pantalla.
 - Los comandos que cambian algo en el sistema llevan `sudo` delante. Sin él, Linux responde con un error de permisos.
 - Los números de línea de las salidas (`12:`, `23:`) pueden ser distintos en tu máquina. Lo importante es el texto.
 
