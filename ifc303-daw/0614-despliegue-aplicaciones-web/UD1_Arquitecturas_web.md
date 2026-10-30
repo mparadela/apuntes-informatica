@@ -30,13 +30,13 @@ Es importante no tratar estos modelos como alternativas excluyentes en un mismo 
 
 Despliegue monolítico — Solvia (el artefacto ancla del módulo: un sistema interno de gestión de incidencias/tickets IT) tal como se despliega en esta UD1:
 
-```text
+```plaintext
 [Navegador]  --HTTP-->  [Apache + PHP (mod_php) + MySQL, misma máquina]
 ```
 
 Despliegue en 3 capas — la misma aplicación Solvia, en la fase en que se trabajará en UD3 al incorporar el servidor de aplicaciones:
 
-```text
+```plaintext
 [Navegador] -> [Apache :80, proxy] -> [Tomcat :8080] -> [MySQL :3306]
                 (resto de Solvia,        (módulo Java,       (datos)
                  PHP)                     p. ej. informes)

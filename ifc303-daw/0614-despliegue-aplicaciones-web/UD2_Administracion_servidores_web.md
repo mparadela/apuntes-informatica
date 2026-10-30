@@ -24,7 +24,7 @@ Esta unidad parte de lo que se trabajó en la unidad anterior (UD1, arquitectura
 
 **Solvia, el proyecto del módulo.** Solvia es una aplicación web interna de gestión de incidencias (tickets de soporte informático), escrita en PHP clásico con base de datos MariaDB. En la máquina del alumnado está instalada en `/var/www/solvia/` con esta estructura:
 
-```text
+```plaintext
 /var/www/solvia/
 ├── bootstrap.php   ← arranque común de la aplicación
 ├── config/         ← configuración, incluida la contraseña de la base de datos
@@ -92,7 +92,7 @@ Un administrador tiene que conocer estos parámetros por tres razones. La primer
 
 Toda la configuración está en `/etc/apache2/`. Ubuntu (como Debian) reparte la configuración de Apache en muchos ficheros pequeños en lugar de uno grande, y los organiza así:
 
-```text
+```plaintext
 /etc/apache2/
 ├── apache2.conf          ← fichero principal: parámetros globales e inclusiones
 ├── envvars               ← variables de entorno: usuario, grupo, carpeta de logs

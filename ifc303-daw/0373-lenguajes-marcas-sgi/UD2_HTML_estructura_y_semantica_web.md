@@ -236,7 +236,7 @@ Este es el esqueleto completo de la página principal de un portfolio. Es válid
 
 Un documento HTML, igual que un XML, tiene **un único elemento raíz** (`html`) con dos hijos directos: `head` y `body`. Visto como árbol, lo que el navegador construye en memoria (el **DOM**, *Document Object Model*) es este:
 
-```text
+```plaintext
 html
 ├── head
 │   ├── meta (charset)
@@ -560,7 +560,7 @@ Una **URL absoluta** incluye el protocolo y el dominio: `https://github.com/usua
 
 Una **ruta relativa** se interpreta **a partir de la ubicación del documento actual**. Se usa para todo lo que está dentro del propio sitio, porque sigue funcionando aunque el sitio cambie de dominio o se abra desde el disco. Para este árbol de carpetas:
 
-```text
+```plaintext
 portfolio/
 ├── index.html
 ├── sobre-mi.html
@@ -889,7 +889,7 @@ La clave para no equivocarse es que **cada fila tiene que sumar el mismo número
 
 Ejemplo: un horario de 6 columnas (hora + 5 días), 2 filas de datos:
 
-```text
+```plaintext
 +-------+--------+--------+-----------+-------------+-----------+
 | Hora  | Lunes  | Martes | Miércoles | Jueves      | Viernes   |
 +-------+--------+--------+-----------+-------------+-----------+
@@ -905,7 +905,7 @@ La tabla es una cuadrícula, y **cada fila tiene que acabar sumando el mismo nú
 
 Un segundo ejemplo, con tres días y cuatro columnas contando la de la hora:
 
-```text
+```plaintext
 +-------+--------------+----------------+-----------+
 | Hora  | Lunes        | Martes         | Miércoles |
 +-------+--------------+----------------+-----------+
@@ -1200,7 +1200,7 @@ Al enviar, el navegador recoge **cada campo que tenga atributo `name`** y constr
 
 Con **GET**, los datos viajan **en la propia URL**, a continuación de un `?`, separados por `&`, y con los caracteres especiales codificados (la `@` pasa a ser `%40` y los espacios, `+` o `%20`):
 
-```text
+```plaintext
 https://ejemplo.com/contacto?nombre=Ana+Mart%C3%ADn&email=ana%40example.com&telefono=612345678
 ```
 
