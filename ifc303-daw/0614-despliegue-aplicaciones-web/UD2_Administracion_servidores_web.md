@@ -56,7 +56,7 @@ El bloque `<Directory>` fija las reglas de esa carpeta: `AllowOverride All` perm
 
 ## Convenciones
 
-- Los comandos que tienes que escribir van en un recuadro marcado como «comando». Justo debajo, en otro marcado como «salida», está lo que debe aparecer en pantalla.
+- Los comandos que tienes que escribir van en un recuadro marcado como «comando». Justo debajo, en otro marcado como «salida», está lo que debe aparecer en pantalla. Los árboles de ficheros y los esquemas van en un recuadro marcado como «esquema».
 - Los comandos que cambian algo en el sistema llevan `sudo` delante. Sin él, Linux responde con un error de permisos.
 - Los números de línea de las salidas (`12:`, `23:`) pueden ser distintos en tu máquina. Lo importante es el texto.
 
@@ -584,7 +584,11 @@ Este patrón coincide con todas las líneas que empiezan por `Timeout`, `KeepAli
 143:LogLevel warn
 ```
 
-La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con `grep -n -B4 "^Timeout" /etc/apache2/apache2.conf`, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
+La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con este comando, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
+
+```bash
+grep -n -B4 "^Timeout" /etc/apache2/apache2.conf
+```
 
 ```text
 88-
