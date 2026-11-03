@@ -24,7 +24,7 @@ Esta unidad parte de lo que se trabajó en la unidad anterior (UD1, arquitectura
 
 **Solvia, el proyecto del módulo.** Solvia es una aplicación web interna de gestión de incidencias (tickets de soporte informático), escrita en PHP clásico con base de datos MariaDB. En la máquina del alumnado está instalada en `/var/www/solvia/` con esta estructura:
 
-```plaintext
+```text
 /var/www/solvia/
 ├── bootstrap.php   ← arranque común de la aplicación
 ├── config/         ← configuración, incluida la contraseña de la base de datos
@@ -56,7 +56,7 @@ El bloque `<Directory>` fija las reglas de esa carpeta: `AllowOverride All` perm
 
 ## Convenciones
 
-- Los comandos que tienes que escribir van en un recuadro marcado como «comando». Justo debajo, en otro marcado como «salida», está lo que debe aparecer en pantalla.
+- Los comandos van en bloques `bash`; la salida esperada, en bloques `text`, justo debajo.
 - Los comandos que cambian algo en el sistema llevan `sudo` delante. Sin él, Linux responde con un error de permisos.
 - Los números de línea de las salidas (`12:`, `23:`) pueden ser distintos en tu máquina. Lo importante es el texto.
 
@@ -92,7 +92,7 @@ Un administrador tiene que conocer estos parámetros por tres razones. La primer
 
 Toda la configuración está en `/etc/apache2/`. Ubuntu (como Debian) reparte la configuración de Apache en muchos ficheros pequeños en lugar de uno grande, y los organiza así:
 
-```plaintext
+```text
 /etc/apache2/
 ├── apache2.conf          ← fichero principal: parámetros globales e inclusiones
 ├── envvars               ← variables de entorno: usuario, grupo, carpeta de logs
@@ -584,11 +584,7 @@ Este patrón coincide con todas las líneas que empiezan por `Timeout`, `KeepAli
 143:LogLevel warn
 ```
 
-La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con este comando, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
-
-```bash
-grep -n -B4 "^Timeout" /etc/apache2/apache2.conf
-```
+La directiva `User` remite a una variable. Para saber su valor hay que mirar `envvars` (apartado 1.5). Si no entiendes qué hace una directiva, el propio fichero lo explica en los comentarios que tiene encima; se pueden ver con `grep -n -B4 "^Timeout" /etc/apache2/apache2.conf`, donde `-B4` muestra además las cuatro líneas anteriores a la que coincide:
 
 ```text
 88-
@@ -675,4 +671,547 @@ Porque ese `ServerName` está dentro de un `<VirtualHost>` y el aviso reclama un
 
 ---
 
-*El resto de los bloques, el glosario y las referencias se irán añadiendo uno a uno, en el orden de la unidad.*
+## 2. Módulos: ampliar la funcionalidad del servidor
+
+**CE 2.b** — Se han ampliado y reducido las funcionalidades del servidor mediante el uso de módulos.
+
+Este apartado explica de qué piezas está hecho Apache, cómo saber cuáles tiene tu servidor, cómo se añaden y se quitan, qué ocurre cuando falta una y cómo decidir cuáles dejar. Se apoya en el ciclo de trabajo del apartado 1.7 (editar, `configtest`, recargar, comprobar) y en el mapa de ficheros del apartado 1.2. Al final del apartado se examina `mod_status`, el módulo que enseña por dentro el estado del servidor, porque es el ejemplo perfecto de una pieza útil que se vuelve peligrosa si nadie decide quién puede mirarla.
+
+### 2.1 Qué es un módulo y por qué Apache se reparte en trozos
+
+Un **módulo** es una pieza de código que añade una capacidad concreta a Apache: entender las reglas `Require`, comprimir las respuestas, ejecutar PHP, cifrar con TLS, escribir cabeceras, mostrar el estado del servidor. El núcleo de Apache (el *core*) es muy pequeño: sabe aceptar una conexión, leer una petición HTTP, decidir qué sitio debe atenderla y devolver una respuesta. Casi todo lo demás lo hacen módulos.
+
+Esta forma de construir el servidor existe por tres razones. La primera es el **tamaño y el rendimiento**: un servidor que solo sirve ficheros estáticos no necesita cargar el código de PHP ni el de TLS. La segunda es la **seguridad**: el código que no está cargado no puede tener fallos que alguien explote, así que cuantas menos piezas, menos superficie de ataque. La tercera es la **extensibilidad**: cualquiera puede escribir un módulo nuevo sin tocar el núcleo, y por eso hay módulos de Apache para PHP, Python, autenticación contra LDAP o cortafuegos de aplicaciones web.
+
+Hay dos formas de que un módulo forme parte del servidor:
+
+- **Estático** (*static*, o *compiled in*): el código está dentro del ejecutable `apache2`. No se puede quitar sin volver a compilar Apache. En Ubuntu solo son estáticos los módulos más básicos, los que el servidor no puede funcionar sin ellos.
+- **Compartido** o dinámico (*shared*, también llamado **DSO**, *Dynamic Shared Object*): el código está en un fichero aparte con extensión `.so`, dentro de `/usr/lib/apache2/modules/`, y Apache lo carga al arrancar si una línea de la configuración se lo pide. Esa línea es la directiva `LoadModule`. Es la forma habitual y la que permite activar y desactivar módulos sin compilar nada. Para poder cargar módulos compartidos, Apache necesita a su vez un módulo estático llamado `mod_so`.
+
+### 2.2 Qué módulos tiene cargados tu servidor
+
+La orden que lista los módulos que Apache tiene cargados es `apache2ctl -M` (la `M` mayúscula es de *modules*). Usa `sudo` para evitar problemas de permisos:
+
+```bash
+sudo apache2ctl -M
+```
+
+```text
+Loaded Modules:
+ core_module (static)
+ so_module (static)
+ watchdog_module (static)
+ http_module (static)
+ log_config_module (static)
+ logio_module (static)
+ version_module (static)
+ unixd_module (static)
+ access_compat_module (shared)
+ alias_module (shared)
+ auth_basic_module (shared)
+ authn_core_module (shared)
+ authn_file_module (shared)
+ authz_core_module (shared)
+ authz_host_module (shared)
+ authz_user_module (shared)
+ autoindex_module (shared)
+ deflate_module (shared)
+ dir_module (shared)
+ env_module (shared)
+ filter_module (shared)
+ mime_module (shared)
+ mpm_prefork_module (shared)
+ negotiation_module (shared)
+ php_module (shared)
+ reqtimeout_module (shared)
+ setenvif_module (shared)
+ status_module (shared)
+```
+
+La salida se lee así: cada línea es un módulo, con su nombre interno terminado en `_module` y, entre paréntesis, si es `static` o `shared`. Los ocho primeros son estáticos; los veinte siguientes son compartidos. Si todavía no has resuelto el aviso `AH00558` (apartado 1.9), verás esa advertencia antes de `Loaded Modules:`; no afecta a la lista. El número exacto de módulos puede diferir en tu máquina según lo que hayas instalado.
+
+Existe una segunda orden, `apache2ctl -l` (la `l` es de *list*), que enseña **solo los estáticos**, los compilados dentro del ejecutable:
+
+```bash
+apache2ctl -l
+```
+
+```text
+Compiled in modules:
+  core.c
+  mod_so.c
+  mod_watchdog.c
+  http_core.c
+  mod_log_config.c
+  mod_logio.c
+  mod_version.c
+  mod_unixd.c
+```
+
+Los ocho nombres coinciden con los ocho `(static)` de la lista anterior. Fíjate en que aquí los módulos se escriben con otra forma de nombre (`mod_so.c`, el nombre del fichero de código fuente) y en `-M` con la forma `so_module`. Son el mismo módulo escrito de dos maneras; en la práctica, la forma de `-M` es la que se usa para comprobar si un módulo está cargado.
+
+Para qué sirve cada uno de los veinte compartidos que trae una instalación de Apache con PHP en Ubuntu, y si hace falta para servir Solvia, se resume en el apartado 2.10.
+
+### 2.3 Dónde viven los módulos: `mods-available` y `mods-enabled`
+
+Los módulos siguen el mismo patrón que los sitios y los fragmentos de configuración, que ya conoces (apartado 1.2): hay una carpeta con **todo lo disponible** y otra con **lo activado**, y la segunda contiene solo enlaces simbólicos a la primera.
+
+```plaintext
+/etc/apache2/
+├── mods-available/     ← todos los módulos que se pueden activar (un .load por módulo, y a veces un .conf)
+│   ├── headers.load
+│   ├── ssl.load
+│   ├── ssl.conf
+│   ├── status.load
+│   ├── status.conf
+│   └── ...
+└── mods-enabled/       ← los activados: enlaces simbólicos a mods-available
+    ├── status.load  -> ../mods-available/status.load
+    ├── status.conf  -> ../mods-available/status.conf
+    └── ...
+```
+
+Cada módulo tiene como mínimo un fichero `.load`, que contiene la línea que lo carga, y algunos tienen además un fichero `.conf` con sus ajustes. Cuenta cuántos hay disponibles y cuántos activados:
+
+```bash
+ls /etc/apache2/mods-available/*.load | wc -l
+ls /etc/apache2/mods-enabled/*.load | wc -l
+```
+
+```text
+116
+20
+```
+
+En una instalación de Apache con PHP hay 116 módulos disponibles y 20 activados: los veinte compartidos de la lista del apartado 2.2. El comando `wc -l` cuenta líneas y el comodín `*.load` hace que `ls` imprima un fichero por línea. Tu cifra puede variar ligeramente.
+
+El contenido de un fichero `.load` es una sola línea:
+
+```bash
+cat /etc/apache2/mods-available/headers.load
+```
+
+```text
+LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so
+```
+
+La directiva `LoadModule` tiene dos argumentos: el **nombre interno** del módulo (`headers_module`, el mismo que aparece en `apache2ctl -M`) y la **ruta del fichero `.so`** que contiene su código. Activar un módulo consiste en que Apache lea ese `.load`, y eso se consigue con un enlace en `mods-enabled/`:
+
+```bash
+ls -l /etc/apache2/mods-enabled/status.load
+```
+
+```text
+lrwxrwxrwx 1 root root 29 Nov  3 13:31 /etc/apache2/mods-enabled/status.load -> ../mods-available/status.load
+```
+
+La `l` del principio de `lrwxrwxrwx` indica que es un enlace simbólico, y la flecha `->` muestra a qué fichero apunta. Es lo mismo que ocurre con `sites-enabled/` y `conf-enabled/`: el fichero real vive en `-available/` y `-enabled/` solo dice qué está en uso.
+
+### 2.4 Activar y desactivar módulos: `a2enmod`, `a2dismod` y `a2query`
+
+No se crean los enlaces a mano. Igual que `a2ensite` y `a2enconf`, hay dos órdenes para módulos: `a2enmod` (*enable module*) y `a2dismod` (*disable module*). Reciben el nombre del módulo **sin** el prefijo `mod_` y **sin** el sufijo `_module`: para `mod_headers` o `headers_module`, el nombre es `headers`.
+
+```bash
+sudo a2enmod headers
+```
+
+```text
+Enabling module headers.
+To activate the new configuration, you need to run:
+  service apache2 restart
+```
+
+La orden ha creado el enlace en `mods-enabled/`, pero **Apache todavía no lo ha cargado**: solo lee su configuración al arrancar o al recargar. El mensaje habla de `restart` (reiniciar). En la práctica, para **añadir** un módulo basta con recargar, que no corta las conexiones en curso; se ha comprobado con Apache 2.4.58 en Ubuntu 24.04. Hay una excepción: cambiar el módulo de multiprocesamiento (el MPM, apartado 2.14) exige reiniciar.
+
+El ciclo completo para un módulo es, por tanto, el mismo de siempre más un paso:
+
+```bash
+sudo a2enmod headers
+sudo apache2ctl configtest
+sudo systemctl reload apache2
+apache2ctl -M | grep headers
+```
+
+```text
+Syntax OK
+ headers_module (shared)
+```
+
+La última orden es la comprobación: si `headers_module` aparece en la lista, Apache lo tiene cargado. Si no aparece, falta la recarga (o el reinicio, si el módulo lo exige). Con `sudo apache2ctl -M` y un `grep` se comprueba si un módulo concreto está cargado en menos de un segundo.
+
+Si repites la activación de un módulo ya activo, la orden lo avisa y no hace nada; si el módulo no existe, falla con un código de error distinto de cero:
+
+```bash
+sudo a2enmod headers
+sudo a2enmod nada
+```
+
+```text
+Module headers already enabled
+ERROR: Module nada does not exist!
+```
+
+Para desactivar se usa `a2dismod`:
+
+```bash
+sudo a2dismod headers
+```
+
+```text
+Module headers disabled.
+To activate the new configuration, you need to run:
+  service apache2 restart
+```
+
+Para consultar el estado de un módulo sin cambiarlo existe `a2query`. Con `-m` y sin nombre lista los módulos activados con el motivo; con un nombre dice si ese módulo está activo:
+
+```bash
+a2query -m headers
+a2query -m status
+```
+
+```text
+No module matches headers
+status (enabled by maintainer script)
+```
+
+La frase entre paréntesis tiene interés: **«enabled by maintainer script»** significa que el módulo lo activó el propio paquete al instalarse (la persona que mantiene el paquete en Ubuntu decidió que viniera activado), y **«enabled by site administrator»** significa que lo activaste tú con `a2enmod`. Es una pista útil para saber qué has tocado en un servidor y qué es de serie.
+
+### 2.5 Dependencias entre módulos
+
+Algunos módulos no funcionan sin otros. Debian y Ubuntu lo anotan en la primera línea del fichero `.load`, en forma de comentario. Mira el de TLS, `ssl`:
+
+```bash
+cat /etc/apache2/mods-available/ssl.load
+```
+
+```text
+# Depends: mime socache_shmcb
+LoadModule ssl_module /usr/lib/apache2/modules/mod_ssl.so
+```
+
+La línea `# Depends: mime socache_shmcb` dice que `ssl` necesita `mime` y `socache_shmcb` (este último guarda en memoria compartida las sesiones TLS para no repetir el *handshake* completo en cada conexión). `a2enmod` lee esa línea y **activa las dependencias antes** que el módulo:
+
+```bash
+sudo a2enmod ssl
+```
+
+```text
+Considering dependency mime for ssl:
+Module mime already enabled
+Considering dependency socache_shmcb for ssl:
+Enabling module socache_shmcb.
+Enabling module ssl.
+See /usr/share/doc/apache2/README.Debian.gz on how to configure SSL and create self-signed certificates.
+To activate the new configuration, you need to run:
+  service apache2 restart
+```
+
+Una sola orden ha activado dos módulos: `socache_shmcb`, que faltaba, y `ssl`. El paso inverso está protegido. Si intentas desactivar un módulo del que depende otro que sigue activo, `a2dismod` se niega:
+
+```bash
+sudo a2dismod socache_shmcb
+```
+
+```text
+ERROR: The following modules depend on socache_shmcb and need to be disabled first: ssl
+```
+
+El orden correcto para deshacer es el inverso: primero `ssl` (el que depende) y después `socache_shmcb`. Desactivar `ssl` no desactiva automáticamente `socache_shmcb`: quedará activo como módulo suelto. Lo mismo ocurre con PHP en tu servidor: el módulo `php8.3` depende de `mpm_prefork`, y `sudo a2dismod mpm_prefork` responde que `php8.3` debe desactivarse antes.
+
+Esta protección existe para que nadie rompa el servidor por descuido, y no hay que esquivarla: si una dependencia te estorba, es una señal de que hay que pensar en qué estás quitando.
+
+### 2.6 Módulos esenciales: `a2dismod` pide confirmación
+
+Hay una lista de módulos que los mantenedores del paquete consideran **esenciales**: `alias`, `auth_basic`, `authn_file`, `authz_host`, `authz_user`, `autoindex`, `deflate`, `dir`, `env`, `filter`, `logio`, `mime`, `negotiation`, `setenvif`, `unixd`, `version` y `watchdog`. Si intentas desactivar uno de ellos, `a2dismod` no lo hace a la primera:
+
+```bash
+sudo a2dismod autoindex
+```
+
+```text
+WARNING: The following essential module will be disabled.
+This might result in unexpected behavior and should NOT be done
+unless you know exactly what you are doing!
+ autoindex
+
+To continue type in the phrase 'Yes, do as I say!' or retry by passing '-f': Aborting
+```
+
+La orden pide que escribas la frase literal `Yes, do as I say!` («sí, haz lo que digo»), o que repitas la orden con la opción `-f` (*force*, forzar). Que la lista de esenciales sea larga **no quiere decir que no se puedan desactivar**: significa que desactivarlos puede cambiar el comportamiento del servidor de formas poco evidentes, y que quien lo haga debe saber qué consecuencia tiene. Observa que `status`, `headers` y `ssl` no están en la lista y se desactivan sin avisar.
+
+### 2.7 Qué ocurre cuando falta un módulo
+
+Un módulo ausente no siempre se nota en el momento: depende de qué función cubría. Tres casos reales, probados con Apache 2.4.58, muestran las tres formas típicas de fallar.
+
+**La directiva no se reconoce.** Cada módulo aporta sus propias directivas. `Header` (para escribir cabeceras HTTP) es de `mod_headers`. Si escribes `Header` y el módulo no está cargado, `configtest` falla:
+
+```bash
+echo 'Header always set X-Prueba "hola"' | sudo tee /etc/apache2/conf-available/prueba-cabecera.conf
+sudo a2enconf prueba-cabecera
+sudo apache2ctl configtest
+```
+
+```text
+AH00526: Syntax error on line 1 of /etc/apache2/conf-enabled/prueba-cabecera.conf:
+Invalid command 'Header', perhaps misspelled or defined by a module not included in the server configuration
+```
+
+Fíjate en la frase final del error: **«perhaps misspelled or defined by a module not included»** (quizá mal escrita, o definida por un módulo que no está incluido). Es el mismo mensaje que da una errata, como `ServerSignatur` (apartado 1.10), pero ahora la directiva está bien escrita y lo que falta es el módulo. Cuando veas `Invalid command` con una directiva que sabes que existe, la primera pregunta es qué módulo la define. Para dejar el servidor como estaba, deshaz la prueba:
+
+```bash
+sudo a2disconf prueba-cabecera
+sudo rm /etc/apache2/conf-available/prueba-cabecera.conf
+```
+
+**La función simplemente no ocurre.** Con PHP, el módulo `php8.3` es el que convierte los ficheros `.php` en páginas. Si se desactiva, el servidor arranca sin errores, no se queja de nada, y entrega el código fuente como si fuera texto:
+
+```bash
+echo '<?php echo "hola ".(2+3);' | sudo tee /var/www/solvia/public/prueba.php
+sudo a2dismod php8.3
+sudo systemctl reload apache2
+curl -s http://localhost/prueba.php
+```
+
+```text
+<?php echo "hola ".(2+3);
+```
+
+El primer comando crea un fichero PHP de una línea en la carpeta que sirve Apache. Con el módulo activo, la respuesta habría sido `hola 5`. Para deshacer la prueba, `sudo a2enmod php8.3`, recarga y `sudo rm /var/www/solvia/public/prueba.php`. Es el síntoma de «PHP servido como texto plano» que ya apareció al desplegar Solvia, y es peligroso por una razón añadida: el servidor está entregando al visitante el código fuente de la aplicación, con las contraseñas que contenga.
+
+**Desaparece una función de administración.** Si se desactiva `status` y se pide `/server-status` (apartado 2.11), el servidor responde `404`: la ruta ya no existe. Esto es lo esperado, y es una forma de «quitar» una función sin escribir ninguna regla.
+
+Dos casos más, de los que conviene saber el efecto. Si desactivas `mime` (con `-f`), el servidor deja de enviar la cabecera `Content-Type` en los ficheros estáticos como una hoja de estilos, y los navegadores pueden dejar de aplicarla. Y si desactivas `authz_core`, que es el que entiende `Require`, `configtest` falla con `Invalid command 'Require'` en los ficheros del paquete que usan esa directiva, como `alias.conf`.
+
+### 2.8 Los nombres de un módulo: tres formas de escribir lo mismo
+
+Es una fuente habitual de confusión, porque un mismo módulo aparece escrito de tres maneras según dónde mires:
+
+| Dónde se usa | Forma | Ejemplo con `headers` | Ejemplo con PHP |
+|---|---|---|---|
+| `a2enmod`, `a2dismod`, `a2query` | nombre corto | `headers` | `php8.3` |
+| `apache2ctl -M` y la directiva `LoadModule` | nombre interno terminado en `_module` | `headers_module` | `php_module` |
+| Documentación y nombre del fichero `.so` | `mod_` + nombre | `mod_headers` | `libphp8.3.so` |
+
+La regla general es sencilla: el nombre interno es el nombre corto más `_module`. La excepción que más confunde es **PHP**: se activa como `php8.3` (el nombre incluye la versión) pero en la lista aparece como `php_module`. Por eso, para comprobar que PHP está cargado, se busca `php`, no `php8.3`:
+
+```bash
+apache2ctl -M | grep php
+```
+
+```text
+ php_module (shared)
+```
+
+### 2.9 Ejemplo resuelto: activar `mod_headers` y comprobar que funciona
+
+El módulo `headers` permite añadir, cambiar o quitar cabeceras en las respuestas. Se usará más adelante en la unidad para las cabeceras de seguridad. Aquí se activa y se comprueba con una cabecera de prueba. Parte de una máquina con el módulo desactivado.
+
+**Paso 1. Comprueba que el módulo no está cargado.**
+
+```bash
+apache2ctl -M | grep headers
+```
+
+La orden no imprime nada: el módulo no está cargado.
+
+**Paso 2. Actívalo y comprueba que la sintaxis es correcta.**
+
+```bash
+sudo a2enmod headers
+sudo apache2ctl configtest
+```
+
+```text
+Enabling module headers.
+To activate the new configuration, you need to run:
+  service apache2 restart
+Syntax OK
+```
+
+**Paso 3. Crea un fragmento de configuración propio con la cabecera de prueba** (mismo patrón que `servername.conf` en el apartado 1.9) **y actívalo:**
+
+```bash
+echo 'Header always set X-Servidor-Administrado "UD2"' | sudo tee /etc/apache2/conf-available/cabecera-prueba.conf
+sudo a2enconf cabecera-prueba
+sudo apache2ctl configtest
+sudo systemctl reload apache2
+```
+
+La directiva se lee así: `Header` es la directiva del módulo; `always` hace que se añada también en las respuestas de error; `set` fija el valor; `X-Servidor-Administrado` es el nombre de la cabecera (las que empiezan por `X-` son cabeceras inventadas, no estándar) y `"UD2"` el valor.
+
+**Paso 4. Comprueba desde fuera que la cabecera llega.**
+
+```bash
+apache2ctl -M | grep headers
+curl -sI http://localhost/ | grep -i x-servidor
+```
+
+```text
+ headers_module (shared)
+X-Servidor-Administrado: UD2
+```
+
+Se han hecho dos comprobaciones distintas, y las dos hacen falta: la primera dice que el módulo **está cargado**, la segunda que su **efecto es visible** para quien hace una petición.
+
+**Paso 5. Deshaz la prueba** (la regla de oro de un servidor ajeno es dejarlo como estaba):
+
+```bash
+sudo a2disconf cabecera-prueba
+sudo rm /etc/apache2/conf-available/cabecera-prueba.conf
+sudo a2dismod headers
+sudo systemctl reload apache2
+```
+
+### 2.10 Caso práctico sobre Solvia: ¿qué necesita tu servidor y qué le sobra?
+
+Con la lista del apartado 2.2 delante, la pregunta de un administrador es: **para cada módulo cargado, ¿para qué está aquí?** La tabla resume los veinte módulos compartidos de un Apache con PHP en Ubuntu y su relación con Solvia. La última columna distingue tres situaciones: lo que Solvia necesita para funcionar hoy, lo que se va a usar más adelante en la unidad, y lo que no se usa de forma evidente.
+
+| Módulo | Qué hace | En Solvia |
+|---|---|---|
+| `mpm_prefork` | Modelo con el que Apache reparte las peticiones entre procesos (apartado 2.14) | Necesario: lo exige `php8.3` |
+| `php8.3` | Ejecuta los ficheros `.php` | Necesario: sin él, Solvia no es una aplicación |
+| `dir` | Decide qué fichero se sirve cuando se pide una carpeta (`DirectoryIndex`, como `index.php`) | Necesario: la portada se pide como `/` |
+| `authz_core` | Entiende las reglas `Require` | Necesario: lo usa el propio `solvia.conf` y otros ficheros del paquete |
+| `authz_host` | Permite `Require ip` y `Require local` | Se usa en `mod_status` |
+| `mime` | Asocia extensiones con tipos de contenido (`.css` es `text/css`) | Necesario en la práctica: sin él, no sale `Content-Type` |
+| `alias` | Permite `Alias` y `Redirect` | Se usará más adelante (redirecciones) |
+| `status` | Muestra el estado del servidor en `/server-status` | Se usará (apartado 2.11) |
+| `auth_basic`, `authn_file`, `authz_user` | Autenticación con usuario y contraseña desde un fichero | Se usarán para proteger el sitio de informes (CE 2.d) |
+| `reqtimeout` | Limita el tiempo para recibir las cabeceras y el cuerpo (apartado 1.14) | Protección útil: se deja |
+| `autoindex` | Genera el listado de una carpeta cuando no hay `index` y `Options Indexes` está activo | **Candidato a revisar**: es la causa del listado de `/assets/` |
+| `negotiation` | Negociación de contenido (idioma, formato) | No se usa |
+| `deflate` | Comprime las respuestas | Mejora el rendimiento; sin consecuencias de seguridad evidentes |
+| `env`, `setenvif`, `filter`, `access_compat` | Variables de entorno, reglas condicionales por cabecera, cadenas de filtros y la sintaxis antigua `Order`/`Allow` | De apoyo; no se tocan sin motivo |
+
+Esta tabla es el punto de partida para razonar, no para decidir. La decisión se toma con la regla del apartado siguiente, y la tabla puede variar si instalas otros paquetes.
+
+**Un módulo en el que merece la pena detenerse es `autoindex`.** Cuando una carpeta no tiene fichero `index` y la opción `Options Indexes` está activa en ese sitio, Apache genera una página con la lista de los ficheros de la carpeta. Eso es lo que ocurre en la carpeta `/assets/` de Solvia, y en muchos servidores es una fuga de información. Hay dos formas de corregirlo y están en niveles distintos: **quitar el módulo** (`a2dismod -f autoindex`, que elimina la función en todo el servidor) o **quitar la opción** en el sitio concreto (`Options -Indexes`, que se estudia en el apartado 4, y deja el módulo cargado). Con el módulo desactivado, la misma petición devuelve `404`, y con la opción quitada, `403`; el apartado 2.12 explica cuál se prefiere y por qué.
+
+### 2.11 `mod_status`: lo que el servidor cuenta de sí mismo, y a quién
+
+`mod_status` publica una página con el estado interno del servidor en la ruta `/server-status`. Viene activado en Ubuntu, y su configuración es esta:
+
+```bash
+grep -v '^\s*#' /etc/apache2/mods-available/status.conf | grep -v '^\s*$'
+```
+
+```text
+<Location /server-status>
+	SetHandler server-status
+	Require local
+</Location>
+ExtendedStatus On
+<IfModule mod_proxy.c>
+	ProxyStatus On
+</IfModule>
+```
+
+La orden quita las líneas de comentario (las que empiezan por `#`) y las vacías para mostrar solo lo que cuenta. El bloque `<Location /server-status>` dice que, para la dirección `/server-status`, el servidor no entregue un fichero sino que el *handler* (el encargado de producir la respuesta) sea el del estado del servidor. La regla `Require local` restringe el acceso: solo se atiende a peticiones que llegan **desde la propia máquina**. Cualquier otro cliente recibe `403 Forbidden`. `ExtendedStatus On` hace que la página incluya datos de cada petición.
+
+Desde la propia máquina se puede ver:
+
+```bash
+curl -s "http://localhost/server-status?auto"
+```
+
+```text
+localhost
+ServerVersion: Apache/2.4.58 (Ubuntu)
+ServerMPM: prefork
+Server Built: 2026-10-08T19:58:01
+CurrentTime: Tuesday, 03-Nov-2026 13:31:35 CET
+RestartTime: Tuesday, 03-Nov-2026 13:31:33 CET
+ServerUptimeSeconds: 1
+ServerUptime: 1 second
+Total Accesses: 6
+BusyWorkers: 1
+IdleWorkers: 4
+Scoreboard: ...__W__.....
+```
+
+El parámetro `?auto` pide la versión para máquinas, una línea `Nombre: valor` por dato; la salida real tiene unas treinta líneas y aquí se muestran las más claras. Informa de la versión exacta, del MPM, de cuánto lleva el servidor en marcha, de cuántos procesos están ocupados (`BusyWorkers`) o libres (`IdleWorkers`) y del `Scoreboard`, un tablero con un carácter por proceso (`_` esperando, `W` enviando respuesta, `.` hueco libre).
+
+La página para humanos, sin `?auto`, añade una tabla con **una fila por petición reciente**, y cada fila incluye la dirección IP del cliente, el sitio virtual que atendió y la petición completa, con su ruta y sus parámetros. Se muestran solo cuatro de las columnas de la tabla real:
+
+```text
+Client     Protocol  VHost         Request
+127.0.0.1  http/1.1  127.0.0.1:80  GET /nada HTTP/1.1
+127.0.0.1  http/1.1  127.0.0.1:80  GET /server-status?auto HTTP/1.1
+```
+
+Esa tabla es lo que hace delicado al módulo. Si cualquiera pudiera abrir `/server-status`, vería de qué direcciones llegan los usuarios, qué rutas se consultan y qué parámetros viajan en la petición (a veces, identificadores o *tokens* dentro de la dirección). Además, le habrías dicho a un atacante la versión exacta y la carga del servidor. Es información de reconocimiento de primera calidad.
+
+Por eso la regla `Require local` es una decisión de seguridad de quien empaquetó Apache: el módulo viene activado **y cerrado**. Hay tres cosas que conviene entender sobre esa regla:
+
+- **Un cambio descuidado la abre.** Si alguien, para poder ver la página desde su portátil, sustituye `Require local` por `Require all granted`, el estado del servidor queda público.
+- **No hace falta eliminar el módulo para protegerlo.** Se puede dejar cerrado a todos salvo a quien se autentique; es lo que se hace con el sitio de informes en el apartado 5.
+- **Si no se usa, se puede quitar.** Con el módulo desactivado, `/server-status` devuelve `404` y la superficie de ataque desaparece. Es la opción correcta en un servidor donde nadie va a consultar esa página.
+
+### 2.12 ⚖️ Alternativa y criterio
+
+**Quitar un módulo o restringir su uso con configuración.** Casi siempre hay dos formas de dejar de ofrecer una función: desactivar el módulo que la implementa (`a2dismod`) o dejarlo cargado y limitar su uso con una directiva (`Require`, `Options -Indexes`). Las dos son válidas, y se elige con este criterio:
+
+- **Si nadie va a necesitar la función nunca, se quita el módulo.** El código que no se carga no puede tener fallos que se exploten, no consume memoria y no puede reactivarse por un descuido en un fichero de configuración. Es el caso de `negotiation` en un sitio que no tiene versiones en varios idiomas.
+- **Si la función se necesita en unos sitios y en otros no, o a veces, se deja el módulo y se restringe con configuración.** Por ejemplo, el listado de carpetas de `autoindex` puede ser deseable en un sitio de descargas y no en Solvia; quitar el módulo penalizaría al primero.
+- **Si el módulo es esencial o tiene dependientes, se deja.** Y se actúa con configuración. Es la razón de que `a2dismod` pida confirmación en los esenciales.
+
+Hay una tercera alternativa que no se usa en esta unidad: **compilar Apache a mano** con solo los módulos necesarios incorporados. Se obtiene el servidor más pequeño posible, pero se pierden las actualizaciones de seguridad automáticas que da el paquete de Ubuntu, y a cambio de ahorrar unos megabytes se asume la tarea de recompilar cada vez que se publica un parche. Para un servidor de producción gestionado con `apt`, no compensa.
+
+**Qué dejar de serie.** La pregunta «¿por qué está cargado este módulo?» debe poder responderse para cada línea de `apache2ctl -M`. Si la respuesta es «porque venía así», aún no está tomada la decisión: se puede dejar, pero entonces la justificación es «no tengo motivo para quitarlo y quitarlo tiene un riesgo», no «venía de serie».
+
+### 2.13 ⚠️ Errores comunes
+
+**Usar el nombre equivocado.** `sudo a2enmod mod_headers` y `sudo a2enmod headers_module` fallan con `ERROR: Module ... does not exist!`. El nombre correcto es el corto: `headers`. En el caso de PHP, el nombre incluye la versión (`php8.3`) aunque en la lista aparezca `php_module`.
+
+**Activar el módulo y no recargar.** Se ejecuta `a2enmod`, se prueba la función y no ocurre nada. El enlace existe, pero Apache lee la configuración solo al arrancar o recargar. Se reconoce porque `apache2ctl -M` no muestra el módulo.
+
+**Dar por bueno el módulo sin comprobar su efecto.** Que `headers_module` aparezca cargado no significa que se esté escribiendo ninguna cabecera: hace falta además una directiva `Header`. Un módulo cargado solo indica que **la función está disponible**; hay que configurarla y comprobarla desde fuera, con `curl`.
+
+**Desactivar un módulo con `-f` sin mirar lo que depende de él.** La opción `-f` salta el aviso de los módulos esenciales. Después, `configtest` puede fallar en un fichero que parecía ajeno (por ejemplo, con `authz_core` desactivado falla `alias.conf`, porque usa `Require`). Si el servidor deja de arrancar, deshaz el último `a2dismod`.
+
+**Editar a mano `mods-enabled/`.** Es una carpeta de enlaces gestionada con `a2enmod` y `a2dismod`; copiar ficheros dentro o borrarlos con `rm` rompe el vínculo con `mods-available/`.
+
+**Leer `Invalid command` como errata cuando es un módulo que falta.** Con una directiva bien escrita, la causa casi siempre es que su módulo no está cargado (apartado 2.7).
+
+**Dejar `mod_status` abierto para «poder verlo».** Cambiar `Require local` por `Require all granted` publica el estado del servidor (apartado 2.11).
+
+### 2.14 💡 Nota técnica: el módulo que decide cómo se atienden las peticiones
+
+Uno de los módulos de la lista no añade una función, sino que decide **cómo trabaja el servidor por dentro**: `mpm_prefork`. **MPM** significa *Multi-Processing Module* (módulo de multiprocesamiento) y es el que define cómo Apache reparte las conexiones entre procesos o hilos. Solo puede haber uno cargado a la vez. Los tres que se usan en Linux son:
+
+| MPM | Cómo trabaja | Cuándo se usa |
+|---|---|---|
+| `prefork` | Un proceso independiente por conexión, sin hilos | Obligatorio con `mod_php`, que no es seguro para hilos |
+| `worker` | Varios procesos, cada uno con varios hilos | Menos habitual hoy |
+| `event` | Como `worker`, pero las conexiones inactivas (*keep-alive*) no ocupan un hilo | El moderno; el que usa Ubuntu por defecto cuando no se instala `mod_php` |
+
+Tu servidor usa `prefork` por una razón concreta: `php8.3` lo exige como dependencia (apartado 2.5). Tiene una consecuencia ya vista en el apartado 1.5: con `prefork`, cada conexión mantenida abierta ocupa un proceso entero, de ahí el interés de un `KeepAliveTimeout` bajo. La alternativa moderna es usar el MPM `event` y ejecutar PHP como un servicio aparte, **PHP-FPM**, al que Apache le pasa las peticiones. Es lo habitual en servidores con mucho tráfico, y queda fuera del alcance de esta unidad.
+
+Dos precisiones técnicas. Cambiar de MPM sí exige **reiniciar** el servicio en vez de recargarlo (es la excepción del apartado 2.4). Y, además de `mod_status`, Apache tiene otros módulos de diagnóstico que no vienen activados, como `info`, que enseña la configuración completa del servidor; sigue el mismo principio que `status`: útil para quien administra, delicado si es público.
+
+### 2.15 Comprueba lo que has entendido
+
+**1. Escribes `Header always set X-Frame-Options "DENY"` en un fichero de `conf-available/`, lo activas con `a2enconf` y `configtest` responde `Invalid command 'Header'`. ¿Qué ocurre y cómo se arregla?**
+
+La directiva `Header` es del módulo `mod_headers` y ese módulo no está cargado, así que Apache no sabe qué es `Header`. No es una errata. Se arregla con `sudo a2enmod headers`, otra vez `configtest` y recarga, y se comprueba con `apache2ctl -M | grep headers` y con `curl -sI`.
+
+**2. Has ejecutado `sudo a2enmod headers` y `curl -sI` no muestra la cabecera que esperas. Da dos causas posibles.**
+
+La primera, que falta recargar: el enlace existe, pero Apache no ha vuelto a leer la configuración, y `apache2ctl -M` no listaría el módulo. La segunda, que el módulo ya está cargado pero no hay ninguna directiva `Header` que escriba la cabecera, o la directiva está en un contexto o fichero que no se aplica a esa respuesta.
+
+**3. ¿Por qué `sudo a2dismod socache_shmcb` falla si `ssl` está activo, y en qué orden se desactivan los dos?**
+
+Porque `ssl` depende de `socache_shmcb` (lo dice la línea `# Depends:` de `ssl.load`) y `a2dismod` protege esa dependencia. Se desactiva primero `ssl` (el que depende) y después, si ya no se necesita, `socache_shmcb`.
+
+**4. `/server-status` responde `200` desde la propia máquina. ¿Qué responderá desde otro equipo de la red y por qué? ¿Qué responderá si se desactiva `status`?**
+
+Desde otro equipo responde `403 Forbidden`, porque la regla `Require local` solo admite peticiones que llegan desde la propia máquina. Con el módulo `status` desactivado responde `404`, porque la ruta deja de existir.
+
+**5. Para impedir el listado de ficheros de `/assets/` puedes quitar el módulo `autoindex` o quitar la opción `Indexes` del sitio. ¿Cuál eliges para Solvia y cuál para un servidor de descargas? Razónalo.**
+
+Para Solvia sirve cualquiera de las dos, y se prefiere **quitar la opción** (`Options -Indexes`) porque `autoindex` es un módulo esencial que `a2dismod` solo quita con `-f`, y porque dejar el módulo cargado permite activarlo después en un sitio concreto. En un servidor de descargas el listado de carpetas puede ser la función deseada, así que se deja el módulo y se activa `Indexes` solo en esas carpetas.
+
+---
+
+*Los bloques 3 a 9, el glosario y las referencias se irán añadiendo uno a uno, en el orden de la unidad.*
