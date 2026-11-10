@@ -19,6 +19,10 @@ Y esto último importa: aquí no se aprueba solo por entregar. Cada etapa de Sol
 - [UD1 · Arquitecturas web](/ifc303-daw/0614-despliegue-aplicaciones-web/UD1_Arquitecturas_web.md)
 - [UD2 · Administración de servidores web](/ifc303-daw/0614-despliegue-aplicaciones-web/UD2_Administracion_servidores_web.md)
 
+## Material de consulta
+
+- [Cheatsheet de comandos](/ifc303-daw/0614-despliegue-aplicaciones-web/Cheatsheet_Comandos.md): todos los comandos del módulo, con sus opciones explicadas.
+
 # Descargas
 
 - [UD1 · Arquitecturas web](ifc303-daw/0614-despliegue-aplicaciones-web/UD1_Arquitecturas_web.md ':ignore')

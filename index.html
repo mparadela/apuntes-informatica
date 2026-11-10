@@ -76,6 +76,23 @@
           hook.afterEach(function (html) {
             return html + footer;
           });
+        },
+        // Docsify no hace nada si se pulsa un enlace a un apartado cuando la
+        // dirección ya apunta a él (p. ej. «Volver al índice» dos veces).
+        // En ese caso se desplaza la página a mano.
+        function (hook) {
+          hook.mounted(function () {
+            document.addEventListener('click', function (e) {
+              var a = e.target.closest('a[href*="?id="]');
+              if (!a) return;
+              var href = decodeURIComponent(a.getAttribute('href'));
+              if (href !== decodeURIComponent(location.hash)) return;
+              var destino = document.getElementById(href.split('?id=')[1]);
+              if (!destino) return;
+              e.preventDefault();
+              destino.scrollIntoView();
+            });
+          });
         }
       ]
     };
