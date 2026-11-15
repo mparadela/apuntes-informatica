@@ -148,4 +148,4 @@ En desarrollo de software, el grupo que más se olvida es el de las **personas u
 
 ---
 
-> **Bloque pendiente de generar.** Apartados 2 a 9: el mapa poder-interés, la materialidad (doble materialidad y umbral), riesgos y oportunidades, el caso práctico resuelto, retos ambientales y sociales (RA2-a/b), glosario, fuentes y preguntas de repaso.
+> **Apartados 2 a 9, en preparación.** Se publicarán aquí próximamente: el mapa de poder e interés, la materialidad, los riesgos y oportunidades ASG, un caso práctico resuelto, los retos ambientales y sociales, el glosario, las fuentes y las preguntas de repaso. Mientras tanto, los apartados 0 y 1 ya se pueden estudiar completos.
