@@ -3,7 +3,7 @@
 **Módulo 1708 — Sostenibilidad aplicada al sistema productivo**
 2.º DAW (IFC303) · IES Río Arba · Curso 2026-27 · Profesora: María Paradela García
 
-> **Cómo usar estos apuntes.** No son el punto de partida de la clase: en clase trabajamos primero con dos casos reales y después venimos aquí a ordenar y fijar lo que hemos visto. Los dos casos son **Amadeus**, una gran empresa española de software para el sector de los viajes (Informe Global 2025 y Estado de Información No Financiera 2025), y **Asenga**, una pyme de material de oficina y logística (memoria de sostenibilidad 2025). Compararlas es la mejor forma de ver qué cambia entre una empresa obligada a informar y otra que lo hace voluntariamente. Cada apartado tiene definición, explicación, ejemplos, un aviso de error frecuente y una nota profesional. Al final hay un glosario y una lista de fuentes.
+> **Cómo usar estos apuntes.** Son un manual completo de la unidad: están pensados para que puedas aprender el contenido desde cero, sin haber asistido a ninguna sesión, y también para repasar si ya has estado en clase. No necesitan conocimientos previos de sostenibilidad. El **apartado 0** explica la base (efecto invernadero, cambio climático, gases, huella de carbono, unidades y la diferencia entre impacto, riesgo y oportunidad); léelo primero. Los demás apartados parten de ahí. A lo largo de la unidad se analizan dos empresas reales, que se describen donde aparecen: **Amadeus**, una gran empresa española de software para el sector de los viajes (con su Informe Global 2025 y su Estado de Información No Financiera 2025), y **Asenga**, una pyme de material de oficina y logística de 24 empleados (con su memoria de sostenibilidad 2025). Compararlas es la mejor forma de ver qué cambia entre una empresa obligada a informar y otra que lo hace voluntariamente. Cada apartado tiene definición, explicación, ejemplos, un aviso de error frecuente y una nota profesional, y termina, en los más importantes, con preguntas para comprobar lo que has entendido. Al final hay un glosario y una lista de fuentes.
 >
 > **Fecha de los datos: 18 de octubre de 2026.** La normativa europea de sostenibilidad está cambiando muy deprisa. Todo lo que lleva fecha está comprobado en esa fecha; si lees esto más tarde, vuelve a comprobarlo.
 
@@ -23,6 +23,7 @@ El CE RA1-d (aspectos ASG relevantes para los grupos de interés, riesgos y opor
 
 ## Índice
 
+0. El punto de partida: lo mínimo para leer una memoria de sostenibilidad
 1. Sostenibilidad y desarrollo sostenible
 2. Los marcos internacionales
 3. La Agenda 2030 y los Objetivos de Desarrollo Sostenible
@@ -32,6 +33,140 @@ El CE RA1-d (aspectos ASG relevantes para los grupos de interés, riesgos y opor
 7. Glosario
 8. Fuentes y recursos
 9. Comprueba lo que sabes
+
+---
+
+## 0. El punto de partida: lo mínimo que necesitas para leer una memoria de sostenibilidad
+
+Este apartado no da por sabido nada. Si ya conoces el cambio climático, léelo en diez minutos para comprobar que usamos las palabras igual; si no lo conoces, es la base sobre la que se apoya el resto de la unidad. Las ideas de aquí vuelven una y otra vez en las memorias de empresa que vas a analizar, y casi todos los malentendidos al leerlas vienen de usar mal cinco o seis palabras.
+
+### 0.1 Qué es el efecto invernadero y qué es el cambio climático
+
+La Tierra recibe energía del Sol, sobre todo en forma de luz. Esa luz calienta el suelo y los océanos, y la superficie, al calentarse, devuelve energía hacia el espacio en forma de radiación infrarroja (calor que no se ve). Algunos gases de la atmósfera absorben una parte de ese calor y lo reemiten en todas direcciones, también hacia el suelo, de modo que parte del calor no escapa. Es el **efecto invernadero**, y es natural y necesario: sin él, la temperatura media del planeta sería de unos −18 °C en lugar de los unos 15 °C actuales. El nombre viene del invernadero de cultivo, que también deja entrar la luz y retiene el calor, aunque el mecanismo físico no es exactamente el mismo.
+
+El problema no es el efecto invernadero, sino que lo estamos **intensificando**. Desde la Revolución Industrial se quema carbón, petróleo y gas para producir electricidad, mover vehículos y fabricar productos; además se talan bosques y se practica una agricultura y una ganadería a gran escala. Todo ello libera a la atmósfera más de esos gases de los que la naturaleza puede absorber. Con más gas, se retiene más calor y la temperatura media sube. Eso es el **calentamiento global**, y el **cambio climático** es el conjunto de sus efectos sobre el clima: olas de calor más frecuentes e intensas, sequías, lluvias torrenciales, subida del nivel del mar y pérdida de hielo.
+
+Conviene separar dos palabras que se confunden. El **tiempo** es lo que pasa hoy (mañana llueve); el **clima** es el comportamiento medio durante décadas (en esta región suele llover poco en verano). Un día de frío no desmiente el cambio climático, igual que un día de lluvia no demuestra que el clima sea húmedo.
+
+Frente a este problema hay dos tipos de respuesta, y las memorias de empresa los nombran constantemente:
+
+- **Mitigación**: reducir las emisiones o captar gases de la atmósfera, para que el problema no crezca. Ejemplo: cambiar a electricidad de origen renovable.
+- **Adaptación**: prepararse para los efectos que ya no se pueden evitar. Ejemplo: diseñar un centro de datos para soportar temperaturas exteriores más altas.
+
+El Acuerdo de París (2015), que verás en el apartado 2, se plantea mantener el calentamiento claramente por debajo de 2 °C sobre los niveles preindustriales y hacer esfuerzos para no pasar de 1,5 °C. Para tener una referencia: el planeta ya está algo por encima de 1 °C.
+
+### 0.2 Los gases de efecto invernadero y el «CO₂ equivalente»
+
+Los **gases de efecto invernadero (GEI)** son los que producen ese efecto. Los principales son:
+
+| Gas | Fórmula | De dónde viene principalmente |
+|---|---|---|
+| Dióxido de carbono | CO₂ | Combustión de carbón, petróleo y gas (electricidad, transporte, calefacción, industria); deforestación |
+| Metano | CH₄ | Ganadería, vertederos, fugas de gas natural |
+| Óxido nitroso | N₂O | Fertilizantes agrícolas |
+| Gases fluorados | varias | Refrigeración y aire acondicionado, algunos procesos industriales |
+
+No todos calientan igual. Una tonelada de metano retiene mucho más calor que una tonelada de CO₂, aunque durante menos tiempo. Para poder **sumar** gases distintos en una sola cifra se usa el **potencial de calentamiento global (PCG)**: cuántas veces más calor retiene un gas que el CO₂ durante un periodo de referencia, que por convención son 100 años. Multiplicando la cantidad de cada gas por su PCG y sumando, se obtiene una única cifra en **CO₂ equivalente (CO₂e)**.
+
+**Ejemplo resuelto (inventado, para practicar).** Una instalación emite en un año 10 toneladas de CO₂ y 0,5 toneladas de metano. Para el ejemplo usamos un PCG de 28 para el metano; los valores oficiales del IPCC varían según el informe y el tipo de metano, y se mueven en torno a esa cifra.
+
+```plaintext
+CO₂e = 10 t × 1 + 0,5 t × 28
+     = 10 + 14
+     = 24 t CO₂e
+```
+
+Medio punto de metano pesa casi tanto como diez de CO₂. Por eso, cuando una memoria dice «emisiones totales», lo correcto es que diga «en CO₂e» y que explique qué gases ha incluido. Si solo cuenta CO₂, está dejando fuera parte del problema.
+
+⚠️ **Error frecuente.** Leer «t CO₂e» como «toneladas de CO₂». La «e» significa «equivalente»: ya incluye otros gases convertidos a su equivalente en CO₂. La cifra no se puede comparar directamente con una de «solo CO₂».
+
+### 0.3 La huella de carbono y los tres alcances
+
+La **huella de carbono** de una organización (o de una persona, un producto, un servicio) es la cantidad total de GEI que su actividad emite, expresada en CO₂e y referida a un periodo, normalmente un año natural. Es un inventario: se parece a la contabilidad, pero en toneladas en lugar de euros.
+
+Para que dos huellas sean comparables hay que decidir **qué se cuenta**. La metodología más usada es el **GHG Protocol** (*Greenhouse Gas Protocol*), una norma de contabilidad de emisiones creada por el World Resources Institute y el World Business Council for Sustainable Development. Divide las emisiones en tres **alcances**:
+
+| Alcance | Qué incluye | Ejemplo en una empresa de software |
+|---|---|---|
+| **1. Emisiones directas** | Las que salen de fuentes que la empresa posee o controla | El gasóleo de la caldera de la oficina, los coches de empresa |
+| **2. Emisiones indirectas por energía comprada** | Las que se emitieron al producir la electricidad (o el calor) que la empresa compra | La electricidad de las oficinas y de sus propios servidores |
+| **3. Otras emisiones indirectas de la cadena de valor** | Todo lo demás: lo que se emite antes y después de la empresa | Los equipos informáticos comprados, los servicios en la nube contratados, los viajes de negocio, el desplazamiento diario de la plantilla, el uso de los productos vendidos |
+
+La idea que lo ordena: alcance 1 es lo que quemas tú; alcance 2 es lo que otro quema para darte energía; alcance 3 es todo lo demás que ocurre por tu actividad pero lejos de tus instalaciones. Para una empresa de servicios, el alcance 3 suele ser con diferencia el mayor y el más difícil de medir, porque depende de datos que tienen otros.
+
+**El alcance 2 se puede contar de dos maneras.** El método **basado en la ubicación** usa el factor medio de emisiones de la red eléctrica del país. El método **basado en el mercado** tiene en cuenta si la empresa ha contratado electricidad renovable con garantías de origen, y entonces su factor es mucho menor. Una empresa seria declara las dos cifras o, al menos, dice cuál usa.
+
+### 0.4 Kilogramos, toneladas y órdenes de magnitud
+
+Una de las trampas más comunes al comparar empresas es la unidad. Una tonelada son 1.000 kilogramos.
+
+| Unidad | Equivale a | Ejemplo de uso |
+|---|---|---|
+| 1 kg CO₂e | 1.000 g | Pyme pequeña o producto |
+| 1 t CO₂e | 1.000 kg | Empresa mediana |
+| 1 kt CO₂e | 1.000 t | Gran empresa o país pequeño |
+
+Dos casos reales que verás en la unidad, con datos de sus propios informes:
+
+- **Asenga** (pyme de 24 empleados) declara una huella de **20.293,81 kg CO₂e** en alcances 1 y 2 en 2025. Dividiendo entre 1.000, son **unas 20,3 toneladas**.
+- **Amadeus** (gran empresa de software) declara **13.143 toneladas** de alcances 1 y 2 (método de mercado) y 195.061 toneladas de alcance 3.
+
+A primera vista «20.293» parece mayor que «13.143», y es lo contrario. Hay que llevar las dos a la misma unidad antes de comparar:
+
+```plaintext
+Amadeus: 13.143 t × 1.000 = 13.143.000 kg
+Asenga:  20.293,81 kg
+
+13.143.000 / 20.293,81 ≈ 648 veces más
+```
+
+Aun así, la comparación de totales solo dice que una empresa es mucho mayor que la otra. Para saber cuál es **más eficiente** se usa la **intensidad**: emisiones divididas por una medida de actividad, como millones de euros de cifra de negocios o número de empleados. Asenga la publica: 5,19 t CO₂e por millón de euros.
+
+⚠️ **Error frecuente.** Comparar cifras de dos empresas sin mirar la unidad (kg o t), el periodo (el año) y el alcance (¿incluye el 3 o solo el 1 y 2?). Si cualquiera de esas tres cosas cambia, la comparación no vale.
+
+### 0.5 Los retos de sostenibilidad no son solo el clima
+
+El clima ocupa los titulares, pero la sostenibilidad abarca más. En las tres dimensiones que verás en el apartado 1, los retos que más se repiten en las memorias son:
+
+| Dimensión | Retos habituales | Qué significa, en una frase |
+|---|---|---|
+| Ambiental | Cambio climático | Emisiones de GEI (apartados anteriores) |
+| | Agua | Cuánta se consume y si procede de zonas con escasez |
+| | Biodiversidad | Pérdida de especies y de ecosistemas por la actividad humana |
+| | Contaminación | Emisión de sustancias que dañan el aire, el agua o el suelo |
+| | Residuos y economía circular | Cuánto se tira y cuánto se reutiliza o recicla; la economía circular busca que los materiales vuelvan al ciclo en vez de convertirse en basura |
+| Social | Condiciones de trabajo | Salarios, jornada, seguridad, estabilidad del empleo |
+| | Igualdad y diversidad | Trato y oportunidades iguales entre personas distintas |
+| | Cadena de suministro | Que los proveedores respeten los derechos humanos y laborales |
+| | Privacidad y seguridad de los datos | Cómo se protegen los datos personales de clientes y empleados |
+| Gobernanza | Ética y corrupción | Cómo se evitan sobornos y conflictos de interés |
+| | Ciberseguridad | Protección frente a ataques y fallos en los sistemas |
+| | Transparencia fiscal | Si se pagan los impuestos donde se genera la actividad |
+
+Un sector no se ve igual de afectado por todos. Una empresa de software no tiene un problema grave de contaminación del agua, pero sí de consumo eléctrico y de residuos electrónicos: según el *Global E-waste Monitor 2024* (Naciones Unidas), en 2022 se generaron en el mundo unos 62 millones de toneladas de residuos electrónicos y solo una parte fue recogida y reciclada de forma documentada; y la Agencia Internacional de la Energía estima que los centros de datos consumieron en 2024 en torno a 415 TWh y que ese consumo podría duplicarse hacia 2030. (Son cifras de informes externos que conviene volver a comprobar antes de citarlas en un trabajo.)
+
+### 0.6 Impacto, riesgo y oportunidad: tres palabras que se confunden
+
+Todo asunto de sostenibilidad se puede mirar desde dos direcciones, y la unidad siguiente se basa en esa distinción:
+
+- **Impacto**: lo que **la empresa provoca** en el entorno o en las personas (de dentro hacia fuera). Ejemplo: una empresa que cambia de proveedor eléctrico provoca menos emisiones.
+- **Riesgo**: lo que **el asunto puede costarle a la empresa** (de fuera hacia dentro). Ejemplo: si sube el precio de la electricidad o llegan olas de calor, los costes de refrigerar sus servidores aumentan.
+- **Oportunidad**: lo que **el asunto puede aportarle** si lo gestiona bien. Ejemplo: ofrecer a sus clientes un servicio con menor huella le permite ganar contratos.
+
+El mismo asunto puede ser las tres cosas a la vez. A quienes afecta o interesa lo que hace la empresa (clientes, plantilla, proveedores, administraciones, comunidad local, personas inversoras) se les llama **grupos de interés**. Un asunto «material» es el que importa lo bastante, por su impacto o por su efecto en la empresa, como para que la memoria tenga que hablar de él. Los apartados 4 y 5 desarrollan la idea, y la UD2 la trabaja a fondo.
+
+### 0.7 Comprueba lo que has entendido
+
+1. **¿Por qué el efecto invernadero es «natural» y aun así es un problema?**
+   *Porque sin él la Tierra sería demasiado fría; el problema es que la actividad humana libera más gases de los que se absorben, con lo que se retiene más calor y la temperatura media sube.*
+2. **Una memoria dice «emitimos 50 t CO₂e». ¿Qué te falta saber antes de interpretar el dato?**
+   *Qué gases incluye, qué alcances (1, 2, 3), qué periodo y, si quieres compararla, cuál es su actividad (intensidad).*
+3. **Clasifica por alcance: (a) el gas de la caldera de la oficina, (b) la electricidad que compra, (c) los vuelos del equipo comercial.**
+   *(a) alcance 1; (b) alcance 2; (c) alcance 3.*
+4. **Una pyme declara 8.000 kg y una grande, 5 t. ¿Cuál emite más?**
+   *La pyme: 8.000 kg son 8 t, más que 5 t. Hay que pasar a la misma unidad antes de comparar.*
+5. **Un cliente retira un contrato por la mala huella de una empresa. ¿Es un impacto, un riesgo o una oportunidad para ella?**
+   *Un riesgo (de fuera hacia dentro): el asunto de sostenibilidad le cuesta dinero.*
 
 ---
 
@@ -409,7 +544,7 @@ Un **estándar de métricas** (o estándar de información) es un conjunto de re
 | Obligación legal | ¿Quién tiene que informar? | CSRD y Directiva Ómnibus I (UE), Ley 11/2018 de información no financiera (España) | No obligada; su memoria es voluntaria | Obligada: Estado de Información No Financiera según la Ley 11/2018 (Informe Global, p. 151) |
 | Estándar de información | ¿Qué y cómo se informa? | ESRS, VSME, GRI, NIIF S1 y S2 del ISSB | VSME (p. 54) | ESRS en el Estado de Información No Financiera; GRI (con referencias SASB y TCFD) en el Informe Global (pp. 151-152) |
 | Metodología de cálculo | ¿Cómo se calcula un dato concreto? | GHG Protocol para la huella de carbono; B4SI para la inversión en la comunidad | GHG Protocol (p. 34) | GHG Protocol y B4SI (p. 152) |
-| Sistema de gestión certificable | ¿Tiene la empresa un sistema de gestión auditado? | ISO 14001 (ambiental), ISO 9001 (calidad), EMAS | ISO 14001 e ISO 9001 (pp. 27-28) | No lo hemos revisado en esta unidad |
+| Sistema de gestión certificable | ¿Tiene la empresa un sistema de gestión auditado? | ISO 14001 (ambiental), ISO 9001 (calidad), EMAS | ISO 14001 e ISO 9001 (pp. 27-28) | No se analiza en esta unidad |
 
 Fíjate en un detalle de Amadeus: publica **dos documentos**. El **Informe Global** es su informe voluntario, más amplio, elaborado con GRI. El **Estado de Información No Financiera** es el documento legal: como a 31 de diciembre de 2025 España no había transpuesto la CSRD, lo ha preparado según la Ley 11/2018, que sigue en vigor, «teniendo en cuenta» las Normas Europeas de Información de Sostenibilidad (NEIS, el nombre en español de los ESRS) (Informe Global, p. 151).
 
@@ -495,7 +630,7 @@ Reducción = (valor inicial − valor final) / valor inicial × 100
           = 7,89 %
 ```
 
-La memoria dice 8,57 %, que es lo que sale si se divide entre el valor final (20.293,81). Lo vimos en la sesión 1: no cambia la conclusión (la huella bajó), pero sobreestima el logro.
+La memoria dice 8,57 %, que es lo que sale si se divide entre el valor final (20.293,81). Es un error habitual: no cambia la conclusión (la huella bajó), pero sobreestima el logro.
 
 **El mismo indicador en una gran empresa.** En su Estado de Información No Financiera 2025, Amadeus declara:
 
@@ -627,32 +762,42 @@ Aunque una pyme de desarrollo web no cotice en bolsa, la ISR le llega por dos v�
 | Término | Definición |
 |---|---|
 | Acuerdo de París | Tratado de 2015 que fija el objetivo de mantener el calentamiento muy por debajo de 2 °C y proseguir los esfuerzos para limitarlo a 1,5 °C. |
+| Adaptación | Preparar a una organización o un territorio para los efectos del cambio climático que ya no se pueden evitar. |
 | Agenda 2030 | Plan de acción de Naciones Unidas aprobado en 2015, con 17 ODS y 169 metas. |
 | Alcance 1, 2 y 3 | Clasificación de las emisiones del GHG Protocol: directas, por energía comprada y resto de la cadena de valor. |
 | ASG (ESG) | Ambiental, Social y de Gobernanza: los tres bloques de asuntos con los que se evalúa a una organización más allá de lo financiero. |
 | *Best-in-class* | Estrategia de inversión que selecciona a las empresas con mejor desempeño ASG dentro de cada sector. |
+| Cambio climático | Conjunto de cambios en el clima (temperaturas, lluvias, nivel del mar) causados por el aumento de gases de efecto invernadero de origen humano. |
 | CMNUCC | Convención Marco de Naciones Unidas sobre el Cambio Climático (1992). Sus conferencias anuales son las COP. |
+| CO₂e (CO₂ equivalente) | Unidad que expresa la cantidad de cualquier gas de efecto invernadero según el calor que retendría la misma masa de CO₂ (potencial de calentamiento global a 100 años). |
 | Comunicación sobre el Progreso (CoP) | Informe anual que presentan las entidades adheridas al Pacto Mundial. |
 | COP | Conferencia de las Partes: reunión anual de los países firmantes de la CMNUCC. |
 | CSRD | Directiva (UE) 2022/2464, sobre información corporativa en materia de sostenibilidad. |
 | Desarrollo sostenible | Desarrollo que satisface las necesidades del presente sin comprometer la capacidad de las generaciones futuras de satisfacer las suyas. |
 | Doble materialidad | Enfoque que exige informar tanto del impacto de la empresa en el entorno como del efecto de los asuntos de sostenibilidad en la empresa. |
+| Efecto invernadero | Retención natural de calor por ciertos gases de la atmósfera; sin él la Tierra sería demasiado fría. Se intensifica con las emisiones humanas. |
 | EFRAG | Grupo Consultivo Europeo en materia de Información Financiera, que elabora los ESRS y el VSME. |
 | EINF | Estado de información no financiera, obligatorio en España para determinadas empresas según la Ley 11/2018. |
 | ESMA | Autoridad Europea de Valores y Mercados. Supervisa a los proveedores de calificaciones ASG desde julio de 2026. |
 | ESRS | Normas Europeas de Información sobre Sostenibilidad, obligatorias para las empresas sujetas a la CSRD. |
 | FTE | Equivalente a jornada completa: número de empleados convertido a jornada completa (una persona al 80 % cuenta 0,8). |
+| GEI (gases de efecto invernadero) | Gases que retienen calor en la atmósfera: CO₂, metano, óxido nitroso y gases fluorados, entre otros. |
 | GHG Protocol | Metodología internacional para calcular las emisiones de gases de efecto invernadero de una organización. |
 | *Greenwashing* (ecoblanqueo) | Presentar a una empresa o un producto como más sostenible de lo que es. |
 | GRI | Global Reporting Initiative: organización que publica los estándares de memoria de sostenibilidad más usados del mundo. |
+| Grupo de interés | Persona o colectivo al que afecta la actividad de una organización o que puede influir en ella (clientes, plantilla, proveedores, administraciones, comunidad, inversores). |
+| Huella de carbono | Total de gases de efecto invernadero que emite una actividad, expresado en CO₂e y referido a un periodo. |
+| Impacto, riesgo y oportunidad | Impacto: efecto de la empresa sobre el entorno (de dentro hacia fuera). Riesgo: lo que un asunto puede costarle a la empresa. Oportunidad: lo que puede aportarle si lo gestiona bien. |
 | ISR | Inversión socialmente responsable: la que tiene en cuenta criterios ASG además de los financieros. |
 | ISSB | Consejo de Normas Internacionales de Sostenibilidad, de la Fundación IFRS. Autor de las normas NIIF S1 y S2. |
 | kg CO₂e | Kilogramos de CO₂ equivalente: unidad común para sumar distintos gases de efecto invernadero. |
 | Meta (ODS) | Concreción comprobable de un ODS. Hay 169. |
+| Mitigación | Reducir las emisiones o captar gases de la atmósfera para frenar el cambio climático. |
 | NDC | Contribución determinada a nivel nacional: el plan climático que cada país presenta en el marco del Acuerdo de París. |
 | ODS | Objetivos de Desarrollo Sostenible: los 17 objetivos de la Agenda 2030. |
 | Ómnibus I | Directiva (UE) 2026/470, que reduce el alcance de la CSRD y de la directiva de diligencia debida. |
 | Pacto Mundial | Iniciativa voluntaria de Naciones Unidas para que las empresas se comprometan con diez principios. |
+| PCG (potencial de calentamiento global) | Cuántas veces más calor retiene un gas que el CO₂ durante un periodo de referencia (por convención, 100 años). |
 | Principio de precaución | Principio 15 de la Declaración de Río: la falta de certeza científica no justifica aplazar medidas ante un riesgo de daño grave. |
 | Rating (calificación) ASG | Opinión de un proveedor especializado sobre el perfil de sostenibilidad de una empresa o un producto financiero. |
 | SBTi | *Science Based Targets initiative*: iniciativa que valida que los objetivos de reducción de emisiones de una empresa son coherentes con el Acuerdo de París. |
@@ -677,8 +822,8 @@ Fuentes oficiales y primarias (búscalas por su título; las direcciones solo se
 - Directiva (UE) 2022/2464 (CSRD); Directiva (UE) 2026/470 (Ómnibus I); Reglamento (UE) 2024/3005 (calificaciones ASG): <https://eur-lex.europa.eu/eli/reg/2024/3005/oj>; Reglamento (UE) 2019/2088 (SFDR); Reglamento (UE) 2020/852 (Taxonomía); Directiva (UE) 2024/825 (empoderamiento de los consumidores). Todas en EUR-Lex.
 - Ley 11/2018, de 28 de diciembre, en materia de información no financiera y diversidad (BOE).
 - Ley 7/2021, de 20 de mayo, de cambio climático y transición energética (BOE).
-- Asenga Logística. *Memoria de sostenibilidad 2025* (uso en clase mediante extracto, solo para análisis).
-- Amadeus IT Group. *Informe Global 2025* (en español) y *Non-Financial Information Statement and sustainability information 2025*: <https://amadeus.com/es/informes-anuales/informe-global-2025>. Notas de prensa «Amadeus lanza Travel Impact Suite» (1 jul. 2024) y «Amadeus pone el foco en los viajes de negocios accesibles y sostenibles en alianza con la Fundación GBTA» (24 jun. 2025), en su sala de prensa. Uso en clase mediante extracto, solo para análisis.
+- Asenga Logística. *Memoria de sostenibilidad 2025* (se usan extractos solo para análisis).
+- Amadeus IT Group. *Informe Global 2025* (en español) y *Non-Financial Information Statement and sustainability information 2025*: <https://amadeus.com/es/informes-anuales/informe-global-2025>. Notas de prensa «Amadeus lanza Travel Impact Suite» (1 jul. 2024) y «Amadeus pone el foco en los viajes de negocios accesibles y sostenibles en alianza con la Fundación GBTA» (24 jun. 2025), en su sala de prensa. Se usan extractos solo para análisis.
 
 ---
 
