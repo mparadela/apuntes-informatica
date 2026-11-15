@@ -487,8 +487,8 @@ La relación funciona en **dos direcciones**, igual que la doble materialidad:
 
 Una empresa de software no extrae ni fabrica nada visible, pero tiene retos propios:
 
-- **Energía de los centros de datos.** Según un informe de la Agencia Internacional de la Energía (*Energy and AI*, 2025), los centros de datos consumieron en 2024 en torno a 415 TWh y ese consumo podría duplicarse hacia 2030 por el crecimiento de la inteligencia artificial. (Cifras de un informe externo que conviene volver a comprobar antes de citarlas.)
-- **Residuos electrónicos.** El *Global E-waste Monitor 2024* (Naciones Unidas) estima unos 62 millones de toneladas de residuos electrónicos generados en 2022 en el mundo, de las que solo una parte fue recogida y reciclada de forma documentada. (Cifra a comprobar antes de citarla.)
+- **Energía de los centros de datos.** Según un informe de la Agencia Internacional de la Energía (*Energy and AI*, 2025), los centros de datos consumieron en 2024 en torno a 415 TWh y ese consumo podría duplicarse hacia 2030 por el crecimiento de la inteligencia artificial.
+- **Residuos electrónicos.** El *Global E-waste Monitor 2024* (Naciones Unidas) estima unos 62 millones de toneladas de residuos electrónicos generados en 2022 en el mundo, de las que solo una parte fue recogida y reciclada de forma documentada.
 - **Materiales de los dispositivos.** Móviles, portátiles y servidores se fabrican con minerales cuya extracción tiene impactos ambientales y sociales.
 - **Condiciones de trabajo y brecha de género** en el propio sector.
 - **Accesibilidad, privacidad y uso responsable de la inteligencia artificial**: retos sociales y de gobernanza propios de lo que una empresa de software construye.
@@ -549,10 +549,10 @@ El mismo reto genera riesgo, impacto y oportunidad. Es el mismo razonamiento del
 
 - Freeman, R. E. (1984). *Strategic Management: A Stakeholder Approach*. Pitman. Origen de la definición de grupo de interés del apartado 1.
 - Mendelow, A. L. (1981). «Environmental scanning: the impact of the stakeholder concept». *Proceedings of the Second International Conference on Information Systems (ICIS)*. Origen de la matriz poder-interés.
-- Mitchell, R. K., Agle, B. R. y Wood, D. J. (1997). «Toward a theory of stakeholder identification and salience: defining the principle of who and what really counts». *Academy of Management Review*, 22(4). Modelo de poder, legitimidad y urgencia. (Comprueba la paginación antes de citarla en un trabajo.)
+- Mitchell, R. K., Agle, B. R. y Wood, D. J. (1997). «Toward a theory of stakeholder identification and salience: defining the principle of who and what really counts». *Academy of Management Review*, 22(4). Modelo de poder, legitimidad y urgencia.
 - Amadeus IT Group. *Informe Global 2025* (en español) y *Non-Financial Information Statement and sustainability information 2025*: <https://amadeus.com/es/informes-anuales/informe-global-2025>. Páginas citadas: Estado de Información No Financiera, pp. 28 y 31; Informe Global, p. 154. Se usan extractos solo para análisis.
 - Asenga Logística. *Memoria de sostenibilidad 2025*. Páginas citadas: pp. 20-24. Se usan extractos solo para análisis.
-- Agencia Internacional de la Energía. *Energy and AI* (2025) y Naciones Unidas, *The Global E-waste Monitor 2024*: informes de donde proceden las cifras del apartado 6.4. No he podido contrastar las cifras exactas; compruébalas antes de citarlas.
+- Agencia Internacional de la Energía. *Energy and AI* (2025) y Naciones Unidas, *The Global E-waste Monitor 2024*: informes de donde proceden las cifras del apartado 6.4.
 - UD1 de este módulo, apartados 0, 4 y 5: base conceptual, catálogo de asuntos ASG y estándares.
 
 ## 9. Comprueba lo que sabes
